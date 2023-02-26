@@ -1,0 +1,30 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+
+// Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Rubik", sans-serif;
+}
+
+// Container
+.container {
+  width: 1466px;
+  margin: 0 auto;
+}
+
+body::-webkit-scrollbar {
+  background-color: rgba(0, 0, 0, 0.03);
+  width: 7px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  height: 5000px;
+}

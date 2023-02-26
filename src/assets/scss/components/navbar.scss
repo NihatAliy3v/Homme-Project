@@ -1,0 +1,15 @@
+.navbar {
+  margin-top: 2px;
+  .nav-list {
+    display: flex;
+    justify-content: space-between;
+    .nav-item {
+      .nav-link {
+        display: block;
+        color: #fff;
+        padding: 16px;
+        line-height: 16px;
+      }
+    }
+  }
+}
