@@ -1,12 +1,12 @@
 // Router
 import { Link } from "react-router-dom";
-//Images
+// Images
 import logo from "../assets/images/main_logo.svg";
-//icons
+// Icons
 import { BiUser, BiChevronDown } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
 import { SlHeart } from "react-icons/sl";
-//Components
+// Components
 import { NavBar } from "./NavBar";
 import { Search } from "./Search";
 

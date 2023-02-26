@@ -1,3 +1,4 @@
+// Icons
 import { TbSearch } from "react-icons/tb";
 
 export const Search = () => {
