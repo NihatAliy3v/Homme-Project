@@ -4,8 +4,94 @@ import { Link } from "react-router-dom";
 import heroBanner from "../assets/images/hero-banner.jpg";
 // Icons
 import { MdArrowRight } from "react-icons/md";
+import { HomeProducts } from "../components/HomeProducts";
+// Pages
 
 const Home = () => {
+  const data = [
+    {
+      
+      image:heroBanner,
+
+    },
+    {
+      
+      image:heroBanner,
+
+    },
+    {
+      
+      image:heroBanner,
+
+    },
+    {
+      
+      image:heroBanner,
+
+    },
+    {
+      
+      image:heroBanner,
+
+    },
+    {
+      
+      image:heroBanner,
+
+    },
+    {
+      
+      image:heroBanner,
+
+    },
+    {
+      
+      image:heroBanner,
+
+    },
+    {
+      
+      image:heroBanner,
+
+    },
+    {
+      
+      image:heroBanner,
+
+    },
+    {
+      
+      image:heroBanner,
+
+    },
+    {
+      
+      image:heroBanner,
+
+    },
+    {
+      
+      image:heroBanner,
+
+    },
+    {
+      
+      image:heroBanner,
+
+    },
+      {
+        
+        image:heroBanner,
+
+      },
+      {
+        
+        image:heroBanner,
+
+      },
+    
+  ]
+
   return (
     <main className="home">
       <section className="hero">
@@ -23,12 +109,14 @@ const Home = () => {
               Bring sophistication to your table setting with our products!
             </p>
             <Link className="shop-link">
-              SHOP NOW <MdArrowRight className="shop-arrow"/>
+              SHOP NOW <MdArrowRight className="shop-arrow" />
             </Link>
           </div>
         </div>
       </section>
-        
+      <section className="new-products">
+        <HomeProducts data={data}/>
+      </section>
     </main>
   );
 };
