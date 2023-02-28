@@ -14,11 +14,13 @@ export default function Swip({ children }) {
       <Swiper
         slidesPerView={5}
         slidesPerGroup={5}
-        spaceBetween={30}
+        spaceBetween={40}
         loop={true}
-        
-        navigation={true}
         modules={[Pagination, Navigation]}
+        navigation={{
+          prevEl: '.prev',
+          nextEl: '.next',
+        }}
         className="mySwiper"
       >
         {children}

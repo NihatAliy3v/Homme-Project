@@ -5,7 +5,7 @@ import logo from "../assets/images/main_logo.svg";
 // Icons
 import { BiUser, BiChevronDown } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
-import { SlHeart } from "react-icons/sl";
+import { IoMdHeartEmpty } from "react-icons/io";
 // Components
 import { NavBar } from "./NavBar";
 import { Search } from "./Search";
@@ -38,7 +38,7 @@ export const Header = () => {
                 <BiUser className="profile-icon" />
               </Link>
               <Link className="wish-list">
-                <SlHeart className="wish-list-icon" />
+                <IoMdHeartEmpty className="wish-list-icon" />
               </Link>
               <Link className="cart">
                 <BsCart2 className="cart-icon" />
