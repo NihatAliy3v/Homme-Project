@@ -2,12 +2,13 @@
 import heroBanner from "../assets/images/hero-banner.jpg";
 import decorationImage from "../assets/images/decoration-img.jpg";
 import accessoriesImage from "../assets/images/accessories-img.jpg";
+import categoryDecoration from "../assets/images/category-decoration.jpg";
 
 // Components
 import { HomeProducts } from "../components/HomeProducts";
 import { HomeDesign } from "../components/HomeDesign";
 import { ShopNow } from "../components/ShopNow";
-
+import { CollectionDecoration } from "../components/CollectionDecoration";
 
 const Home = () => {
   const data = [
@@ -68,9 +69,9 @@ const Home = () => {
           <img src={heroBanner} alt="" />
         </div>
       </section>
-      
+
       <section className="shop-now">
-        <ShopNow/>
+        <ShopNow />
       </section>
 
       <section className="new-products">
@@ -97,6 +98,17 @@ const Home = () => {
           title="HOME ACCESSORIES"
           description="Discover homeware to transform your space"
         />
+      </section>
+
+      <section className="banner-decoration">
+        <CollectionDecoration
+          image={categoryDecoration}
+          link="SHOP THE COLLECTION"
+        />
+      </section>
+
+      <section className="recent-viewed">
+        <HomeProducts data={data} title="Recent viewed" />
       </section>
     </main>
   );
