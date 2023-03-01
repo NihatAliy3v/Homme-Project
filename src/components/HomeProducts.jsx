@@ -11,12 +11,12 @@ import {
   MdOutlineKeyboardArrowLeft,
 } from "react-icons/md";
 
-export const HomeProducts = ({ data }) => {
+export const HomeProducts = ({ data , title }) => {
   return (
     <div className="container">
       <div className="row">
         <div className="products-header">
-          <h2 className="title">New products</h2>
+          <h2 className="title">{title}</h2>
           <Link className="view-all">
             View all
             <HiArrowLongRight className="arrow-view" />

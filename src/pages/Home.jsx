@@ -1,96 +1,65 @@
-// Router
-import { Link } from "react-router-dom";
 // Images
 import heroBanner from "../assets/images/hero-banner.jpg";
-// Icons
-import { MdArrowRight } from "react-icons/md";
+import decorationImage from "../assets/images/decoration-img.jpg";
+import accessoriesImage from "../assets/images/accessories-img.jpg";
+
 // Components
 import { HomeProducts } from "../components/HomeProducts";
+import { HomeDesign } from "../components/HomeDesign";
+import { ShopNow } from "../components/ShopNow";
+
 
 const Home = () => {
   const data = [
     {
-      
-      image:heroBanner,
-
+      image: heroBanner,
     },
     {
-      
-      image:heroBanner,
-
+      image: heroBanner,
     },
     {
-      
-      image:heroBanner,
-
+      image: heroBanner,
     },
     {
-      
-      image:heroBanner,
-
+      image: heroBanner,
     },
     {
-      
-      image:heroBanner,
-
+      image: heroBanner,
     },
     {
-      
-      image:heroBanner,
-
+      image: heroBanner,
     },
     {
-      
-      image:heroBanner,
-
+      image: heroBanner,
     },
     {
-      
-      image:heroBanner,
-
+      image: heroBanner,
     },
     {
-      
-      image:heroBanner,
-
+      image: heroBanner,
     },
     {
-      
-      image:heroBanner,
-
+      image: heroBanner,
     },
     {
-      
-      image:heroBanner,
-
+      image: heroBanner,
     },
     {
-      
-      image:heroBanner,
-
+      image: heroBanner,
     },
     {
-      
-      image:heroBanner,
-
+      image: heroBanner,
     },
     {
-      
-      image:heroBanner,
-
+      image: heroBanner,
     },
-      {
-        
-        image:heroBanner,
-
-      },
-      {
-        
-        image:heroBanner,
-
-      },
-    
-  ]
+    {
+      image: heroBanner,
+    },
+    {
+      image: heroBanner,
+    },
+  ];
 
   return (
     <main className="home">
@@ -99,23 +68,35 @@ const Home = () => {
           <img src={heroBanner} alt="" />
         </div>
       </section>
+      
       <section className="shop-now">
-        <div className="container">
-          <div className="row">
-            <h2 className="shop-title">
-              New collection of wine glasses and decanters !
-            </h2>
-            <p className="description">
-              Bring sophistication to your table setting with our products!
-            </p>
-            <Link className="shop-link">
-              SHOP NOW <MdArrowRight className="shop-arrow" />
-            </Link>
-          </div>
-        </div>
+        <ShopNow/>
       </section>
+
       <section className="new-products">
-        <HomeProducts data={data}/>
+        <HomeProducts data={data} title="New products" />
+      </section>
+
+      <section className="home-decoration">
+        <HomeDesign
+          className="left"
+          image={decorationImage}
+          title="HOME DECORATION"
+          description="Transform your home"
+        />
+      </section>
+
+      <section className="bestseller">
+        <HomeProducts data={data} title="Bestseller" />
+      </section>
+
+      <section className="home-accessories">
+        <HomeDesign
+          className="right"
+          image={accessoriesImage}
+          title="HOME ACCESSORIES"
+          description="Discover homeware to transform your space"
+        />
       </section>
     </main>
   );

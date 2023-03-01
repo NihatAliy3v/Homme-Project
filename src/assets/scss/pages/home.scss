@@ -12,40 +12,15 @@
     }
     .shop-now{
         padding: 32px 0;
-        .container{
-            .row{
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                .shop-title{
-                    font-size: 24px;
-                    margin-bottom: 16px;
-                    line-height: 24px;
-                    font-weight: 400;
-                }
-                .description{
-                    font-size: 16px;
-                    margin-bottom: 28px;
-                    font-weight: 300;
-                    line-height: 24px;
-                }
-                .shop-link{
-                    font-size: 24px;
-                    line-height: 24px;
-                    color: #000;
-                    display: flex;
-                    align-items: center;
-                    .shop-arrow{
-                       font-size: 40px;
-                       line-height: 25px;
-                       margin-left: -5px;
-                    }
-                }
-            }
-        }
     }
     .new-products{
         padding: 32px 0;
     }
+    .home-decoration{
+        padding: 16px 0;
+    }
+    .bestseller{
+        padding: 32px 0;
+    }
+    
 }
