@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import heroBanner from "../assets/images/hero-banner.jpg";
 // Icons
 import { MdArrowRight } from "react-icons/md";
+// Components
 import { HomeProducts } from "../components/HomeProducts";
-// Pages
 
 const Home = () => {
   const data = [

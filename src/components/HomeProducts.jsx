@@ -1,13 +1,15 @@
-import React from "react";
+// Link
 import { Link } from "react-router-dom";
-import { HiArrowLongRight } from "react-icons/hi2";
+// Swiper
 import Swip from "../swiper";
 import { SwiperSlide } from "swiper/react";
+// Icons
+import { HiArrowLongRight } from "react-icons/hi2";
+import { IoMdHeartEmpty } from "react-icons/io";
 import {
   MdOutlineKeyboardArrowRight,
   MdOutlineKeyboardArrowLeft,
 } from "react-icons/md";
-import { IoMdHeartEmpty } from "react-icons/io";
 
 export const HomeProducts = ({ data }) => {
   return (
@@ -55,7 +57,7 @@ export const HomeProducts = ({ data }) => {
                     </Link>
                     <div className="content">
                       <Link>
-                        <h3 className="product-title">Manual potato riser</h3>
+                        <h3 className="product-title">Manual potato riser </h3>
                       </Link>
                       <span className="product-price">79.99 &#x20BC;</span>
                     </div>
