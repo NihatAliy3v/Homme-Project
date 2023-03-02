@@ -1,4 +1,4 @@
-// Link
+// Router
 import { Link } from "react-router-dom";
 // Swiper
 import Swip from "../swiper";
@@ -11,7 +11,7 @@ import {
   MdOutlineKeyboardArrowLeft,
 } from "react-icons/md";
 
-export const HomeProducts = ({ data , title }) => {
+export const HomeProducts = ({ data, title }) => {
   return (
     <div className="container">
       <div className="row">

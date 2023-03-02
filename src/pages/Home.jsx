@@ -9,6 +9,7 @@ import { HomeProducts } from "../components/HomeProducts";
 import { HomeDesign } from "../components/HomeDesign";
 import { ShopNow } from "../components/ShopNow";
 import { CollectionDecoration } from "../components/CollectionDecoration";
+import { Advantages } from "../components/Advantages";
 
 const Home = () => {
   const data = [
@@ -109,6 +110,10 @@ const Home = () => {
 
       <section className="recent-viewed">
         <HomeProducts data={data} title="Recent viewed" />
+      </section>
+
+      <section className="advantages">
+        <Advantages />
       </section>
     </main>
   );

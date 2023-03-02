@@ -1,5 +1,8 @@
+// Axios
 import axios from "axios";
+// React
 import { useEffect, useState } from "react";
+// Components
 import { Input } from "../components/Input";
 
 const CreateProduct = () => {
