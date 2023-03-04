@@ -21,24 +21,77 @@ const CreateProduct = () => {
   const [catalogId, setCatalogId] = useState(0);
 
   // Category
-  const [categoryName, setCategoryName] = useState([]);
+  const [categoryName, setCategoryName] = useState("");
   const [dataCategory, setDataCategory] = useState([]);
+  const [categoryId, setCategoryId] = useState(0);
+
+  // Color
+  const [colorName, setColorName] = useState("");
+  const [colorHexCode, setColorHexCode] = useState("");
+  const [colorData, setColorData] = useState([]);
+  const [colorId, setColorId] = useState(0);
+  // Material
+  const [materialName, setMaterialName] = useState("");
+  const [materialData, setMaterialData] = useState([]);
+  const [materialId, setMaterialId] = useState(0);
+  // SubCategory
+  const [subCategoryName, setSubCategoryName] = useState("");
+  const [subCategoryData, setSubCategoryData] = useState([]);
+  const [subCategoryId, setSubCategoryId] = useState(0);
+  // Product
+  const [productName, setProductName] = useState("");
+  const [productCode, setProductCode] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [size, setSize] = useState(0);
+  const [unistInStock, setUnistInStock] = useState(0);
+  const [description, setDescription] = useState("");
+  const [productData, setProductData] = useState([]);
 
   useEffect(() => {
-    axios
+    getComments();
+    getCatalogs();
+    getCategories();
+    getColors();
+    getMaterials();
+    getSubCategories();
+    getProducts();
+  }, []);
+
+  const getComments = async () => {
+    await axios
       .get("https://localhost:44317/api/Comments/getall")
       .then((res) => setDataComment(res.data.data));
-  }, []);
-  useEffect(() => {
+  };
+  const getCatalogs = async () => {
     axios
       .get("https://localhost:44317/api/Catalogs/getall")
       .then((res) => setDataCatalog(res.data.data));
-  }, []);
-  useEffect(() => {
+  };
+  const getCategories = async () => {
     axios
       .get("https://localhost:44317/api/Categories/getall")
       .then((res) => setDataCategory(res.data.data));
-  }, []);
+  };
+  const getColors = async () => {
+    await axios
+      .get("https://localhost:44317/api/Colors/getall")
+      .then((res) => setColorData(res.data.data));
+  };
+  const getMaterials = async () => {
+    await axios
+      .get("https://localhost:44317/api/Materials/getall")
+      .then((res) => setMaterialData(res.data.data));
+  };
+  const getSubCategories = async () => {
+    await axios
+      .get("https://localhost:44317/api/SubCategories/getall")
+      .then((res) => setSubCategoryData(res.data.data));
+  };
+  const getProducts = async () => {
+    await axios
+      .get("https://localhost:44317/api/Products/getAllWithoutImages")
+      .then((res) => setProductData(res.data.data));
+  };
 
   // Add Comment
   const commentSubmit = async (e) => {
@@ -52,9 +105,7 @@ const CreateProduct = () => {
       status,
     };
     await axios.post("https://localhost:44317/api/Comments/post", body);
-    await axios
-      .get("https://localhost:44317/api/Comments/getall")
-      .then((res) => setDataComment(res.data.data));
+    getComments();
     console.log(dataComment);
   };
   // Delete Comment
@@ -62,9 +113,7 @@ const CreateProduct = () => {
     await axios
       .delete(`https://localhost:44317/api/Comments/delete/${commentId}`)
       .then((res) => setDataComment(res.data.data));
-    await axios
-      .get("https://localhost:44317/api/Comments/getall")
-      .then((res) => setDataComment(res.data.data));
+    getComments();
     console.log(dataComment);
   };
   // add Catalog
@@ -74,19 +123,15 @@ const CreateProduct = () => {
       catalogName,
     };
     await axios.post("https://localhost:44317/api/Catalogs/add", body);
-    await axios
-      .get("https://localhost:44317/api/Catalogs/getall")
-      .then((res) => setDataCatalog(res.data.data));
-    console.log(dataCatalog && dataCatalog);
+    getCatalogs();
+    console.log(dataCatalog);
   };
   // Delete Catalog
   const catalogDelete = async (catalogId) => {
     await axios
       .delete(`https://localhost:44317/api/Catalogs/delete/${catalogId}`)
       .then((res) => setDataCatalog(res.data.data));
-    await axios
-      .get("https://localhost:44317/api/Catalogs/getall")
-      .then((res) => setDataCatalog(res.data.data));
+    getCatalogs();
     console.log(dataCatalog);
   };
   // add Category
@@ -97,21 +142,102 @@ const CreateProduct = () => {
       categoryName,
     };
     await axios.post("https://localhost:44317/api/Categories/add", body);
-    await axios
-      .get("https://localhost:44317/api/Categories/getall")
-      .then((res) => setDataCategory(res.data.data));
+    getCategories();
     console.log(dataCategory);
-    console.log(catalogId);
   };
   // Delete Category
   const categoryDelete = async (categoryId) => {
     await axios
       .delete(`https://localhost:44317/api/Categories/delete/${categoryId}`)
       .then((res) => setDataCategory(res.data.data));
-    await axios
-      .get("https://localhost:44317/api/Categories/getall")
-      .then((res) => setDataCategory(res.data.data));
+    getCategories();
     console.log(dataCategory);
+  };
+  // add Color
+  const colorSubmit = async (e) => {
+    e.preventDefault();
+    const body = {
+      colorName,
+      colorHexCode,
+    };
+    await axios.post("https://localhost:44317/api/Colors/add", body);
+    getColors();
+    console.log(colorData);
+  };
+  // Delete Color
+  const colorDelete = async (colorId) => {
+    await axios
+      .delete(`https://localhost:44317/api/Colors/delete/${colorId}`)
+      .then((res) => setColorData(res.data.data));
+    getColors();
+    console.log(colorData);
+  };
+  // add Color
+  const materialSubmit = async (e) => {
+    e.preventDefault();
+    const body = {
+      materialName,
+    };
+    await axios.post("https://localhost:44317/api/Materials/add", body);
+    getMaterials();
+    console.log(materialData);
+  };
+  // Delete Color
+  const materialDelete = async (materialId) => {
+    await axios
+      .delete(`https://localhost:44317/api/Materials/delete/${materialId}`)
+      .then((res) => setMaterialData(res.data.data));
+    getMaterials();
+    console.log(materialData);
+  };
+  // add subCateory
+  const subCategorySubmit = async (e) => {
+    e.preventDefault();
+    const body = {
+      categoryId,
+      subCategoryName,
+    };
+    await axios.post("https://localhost:44317/api/SubCategories/add", body);
+    getSubCategories();
+    console.log(subCategoryData);
+  };
+  // Delete Color
+  const subCategoryDelete = async (subCategoryId) => {
+    await axios
+      .delete(
+        `https://localhost:44317/api/SubCategories/delete/${subCategoryId}`
+      )
+      .then((res) => setSubCategoryData(res.data.data));
+    getSubCategories();
+    console.log(subCategoryData);
+  };
+  // add Product
+  const productSubmit = async (e) => {
+    e.preventDefault();
+    const body = {
+      catalogId,
+      categoryId,
+      subCategoryId,
+      materialId,
+      colorId,
+      productName,
+      productCode,
+      price,
+      size,
+      unistInStock,
+      description,
+    };
+    await axios.post("https://localhost:44317/api/Products/add", body);
+    getProducts();
+    console.log(productData);
+  };
+  // Delete Product
+  const productDelete = async (productId) => {
+    await axios
+      .delete(`https://localhost:44317/api/Products/delete/${productId}`)
+      .then((res) => setProductData(res.data.data));
+    getProducts();
+    console.log(productData);
   };
   return (
     <section className="create-products">
@@ -164,8 +290,10 @@ const CreateProduct = () => {
               />
 
               <button className="btn" onClick={(e) => commentSubmit(e)}>
-                Click
+                Add Comment
               </button>
+              <br />
+              <br />
             </form>
             <div className="comment-get">
               {dataComment?.map((item, index) => {
@@ -176,7 +304,7 @@ const CreateProduct = () => {
                       className="btn"
                       onClick={() => commentDelete(item?.commentId)}
                     >
-                      Click
+                      Delete
                     </button>
                   </div>
                 );
@@ -194,6 +322,8 @@ const CreateProduct = () => {
               placeholder="catalogName"
             />
             <button onClick={(e) => catalogSubmit(e)}>Catalog add</button>
+            <br />
+            <br />
 
             {dataCatalog?.map((item, index) => {
               return (
@@ -203,7 +333,7 @@ const CreateProduct = () => {
                     className="btn"
                     onClick={() => catalogDelete(item?.catalogId)}
                   >
-                    Click
+                    Delete
                   </button>
                 </div>
               );
@@ -234,6 +364,8 @@ const CreateProduct = () => {
               ))}
             </select>
             <button onClick={(e) => categorySubmit(e)}>Category add</button>
+            <br />
+            <br />
 
             {dataCategory?.map((item, index) => {
               return (
@@ -243,16 +375,242 @@ const CreateProduct = () => {
                     className="btn"
                     onClick={() => categoryDelete(item?.categoryId)}
                   >
-                    Click
+                    Delete
                   </button>
                 </div>
               );
             })}
           </div>
+          <hr />
+          <div className="color">
+            <h1>Color</h1>
+            <Input
+              type="text"
+              name="colorName"
+              value={colorName}
+              onChange={(e) => setColorName(e.target.value)}
+              placeholder="colorName"
+            />
+            <Input
+              type="text"
+              name="colorHexCode"
+              value={colorHexCode}
+              onChange={(e) => setColorHexCode(e.target.value)}
+              placeholder="colorHexCode"
+            />
+
+            <button onClick={(e) => colorSubmit(e)}>Color add</button>
+            <br />
+            <br />
+
+            {colorData?.map((item, index) => {
+              return (
+                <div key={index} className="map">
+                  <p>{item?.colorName}</p>
+                  <button
+                    className="btn"
+                    onClick={() => colorDelete(item?.colorId)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+          <hr />
+          <div className="material">
+            <h1>Materials</h1>
+            <Input
+              type="text"
+              name="MaterialName"
+              value={materialName}
+              onChange={(e) => setMaterialName(e.target.value)}
+              placeholder="materialName"
+            />
+
+            <button onClick={(e) => materialSubmit(e)}>Material add</button>
+            <br />
+            <br />
+
+            {materialData?.map((item, index) => {
+              return (
+                <div key={index} className="map">
+                  <p>{item?.materialName}</p>
+                  <button
+                    className="btn"
+                    onClick={() => materialDelete(item?.materialId)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+          <hr />
+          <div className="subCategory">
+            <h1>SubCategory</h1>
+            <Input
+              type="text"
+              name="subCategoryName"
+              value={subCategoryName}
+              onChange={(e) => setSubCategoryName(e.target.value)}
+              placeholder="SubCategoryName"
+            />
+            <select
+              value={categoryId}
+              onChange={(e) => setCategoryId(e.target.value)}
+            >
+              {dataCategory?.map((item, index) => (
+                <option key={index} value={item?.categoryId}>
+                  {item?.categoryName}
+                </option>
+              ))}
+            </select>
+            <button onClick={(e) => subCategorySubmit(e)}>
+              SubCategory add
+            </button>
+            <br />
+            <br />
+
+            {subCategoryData?.map((item, index) => {
+              return (
+                <div key={index} className="map">
+                  <p>{item?.subCategoryName}</p>
+                  <button
+                    className="btn"
+                    onClick={() => subCategoryDelete(item?.subCategoryId)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+          <hr />
+          <hr />
+          <hr />
+          <hr />
+          <hr />
+          <hr />
+          <hr />
+          <hr />
+
+          <div className="productCreate">
+            <h1>Product</h1>
+            <Input
+              type="text"
+              name="productName"
+              value={productName}
+              onChange={(e) => setProductName(e.target.value)}
+              placeholder="productName"
+            />
+            <Input
+              type="text"
+              name="productCode"
+              value={productCode}
+              onChange={(e) => setProductCode(e.target.value)}
+              placeholder="productCode"
+            />
+            <Input
+              type="number"
+              name="price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              placeholder="price"
+            />
+            <Input
+              type="number"
+              name="size"
+              value={size}
+              onChange={(e) => setSize(e.target.value)}
+              placeholder="size"
+            />
+            <Input
+              type="number"
+              name="unistInStock"
+              value={unistInStock}
+              onChange={(e) => setUnistInStock(e.target.value)}
+              placeholder="unistInStock"
+            />
+            <Input
+              type="text"
+              name="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="description"
+            />
+            <select
+              value={catalogId}
+              onChange={(e) => setCatalogId(e.target.value)}
+            >
+              {dataCatalog?.map((item, index) => (
+                <option key={index} value={item?.catalogId}>
+                  {item?.catalogName}
+                </option>
+              ))}
+            </select>
+            <select
+              value={categoryId}
+              onChange={(e) => setCategoryId(e.target.value)}
+            >
+              {dataCategory?.map((item, index) => (
+                <option key={index} value={item?.categoryId}>
+                  {item?.categoryName}
+                </option>
+              ))}
+            </select>
+            <select
+              value={subCategoryId}
+              onChange={(e) => setSubCategoryId(e.target.value)}
+            >
+              {subCategoryData?.map((item, index) => (
+                <option key={index} value={item?.subCategoryId}>
+                  {item?.subCategoryName}
+                </option>
+              ))}
+            </select>
+            <select
+              value={colorId}
+              onChange={(e) => setColorId(e.target.value)}
+            >
+              {colorData?.map((item, index) => (
+                <option key={index} value={item?.colorId}>
+                  {item?.colorName}
+                </option>
+              ))}
+            </select>
+            <select
+              value={materialId}
+              onChange={(e) => setMaterialId(e.target.value)}
+            >
+              {materialData?.map((item, index) => (
+                <option key={index} value={item?.materialId}>
+                  {item?.materialName}
+                </option>
+              ))}
+            </select>
+            <button onClick={(e) => productSubmit(e)}>Product add</button>
+            <br />
+            <br />
+
+            {productData?.map((item, index) => {
+              return (
+                <div key={index} className="map">
+                  <p>{item?.productName}</p>
+                  <button
+                    className="btn"
+                    onClick={() => productDelete(item?.productId)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+          <hr />
         </div>
       </div>
     </section>
   );
 };
-
 export default CreateProduct;
