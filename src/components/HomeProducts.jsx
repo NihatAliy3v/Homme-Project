@@ -32,12 +32,12 @@ export const HomeProducts = ({ data, title }) => {
               </SwiperSlide>
             ))}
           </Swip>
-          <btn className="prev">
+          <button className="prev">
             <MdOutlineKeyboardArrowLeft />
-          </btn>
-          <btn className="next">
+          </button>
+          <button className="next">
             <MdOutlineKeyboardArrowRight />
-          </btn>
+          </button>
         </div>
       </div>
     </div>
