@@ -1,9 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+// Components
+import { Card } from "../components/Card";
+// Icons
+import { TbSearch } from "react-icons/tb";
 import { VscChevronRight } from "react-icons/vsc";
 import { BiChevronDown } from "react-icons/bi";
+// Router
+import { Link } from "react-router-dom";
+// Images
 import heroBanner from "../assets/images/hero-banner.jpg";
-import { Card } from "../components/Card";
 
 const NewIn = () => {
   const data = [
@@ -56,6 +60,11 @@ const NewIn = () => {
       image: heroBanner,
     },
   ];
+  const handleClick = (e) => {
+    const item = e.target;
+    item.classList.toggle("active");
+  };
+
   return (
     <main className="new-in">
       <section className="wrapper">
@@ -73,31 +82,187 @@ const NewIn = () => {
               <section className="product-list-side">
                 <ul className="catalog-list">
                   <li className="catalog-item">
-                    <div className="item-content">
-                      <span className="title">Categories</span>
+                    <div
+                      className="catalog-content"
+                      onClick={(e) => handleClick(e)}
+                    >
+                      <span className="catalog-title">Categories</span>
                       <div className="icon-container">
                         <BiChevronDown className="icon" />
                       </div>
                     </div>
-                    <ul>
-                      <li>asfafs</li>
+                    <ul className="category-list">
+                      <li className="category-item">
+                        <div className="category-content">
+                          <input type="checkbox" />
+                          <span className="category-title">Home decor</span>
+                        </div>
+                      </li>
+                      <li className="category-item">
+                        <div className="category-content">
+                          <input type="checkbox" />
+                          <span className="category-title">Bathroom</span>
+                        </div>
+                      </li>
+                      <li className="category-item">
+                        <div className="category-content">
+                          <input type="checkbox" />
+                          <span className="category-title">Kitchen</span>
+                        </div>
+                      </li>
+                      <li className="category-item">
+                        <div className="category-content">
+                          <input type="checkbox" />
+                          <span className="category-title">Dining</span>
+                        </div>
+                      </li>
                     </ul>
                   </li>
                   <li className="catalog-item">
-                    <div className="item-content">
-                      <span className="title">Categories</span>
+                    <div
+                      className="catalog-content"
+                      onClick={(e) => handleClick(e)}
+                    >
+                      <span className="catalog-title">Collections</span>
                       <div className="icon-container">
                         <BiChevronDown className="icon" />
                       </div>
                     </div>
+                    <ul className="category-list">
+                      <li className="category-item">
+                        <div className="category-content">
+                          <input type="checkbox" />
+                          <span className="category-title">Home decor</span>
+                        </div>
+                      </li>
+                      <li className="category-item">
+                        <div className="category-content">
+                          <input type="checkbox" />
+                          <span className="category-title">Bathroom</span>
+                        </div>
+                      </li>
+                      <li className="category-item">
+                        <div className="category-content">
+                          <input type="checkbox" />
+                          <span className="category-title">Kitchen</span>
+                        </div>
+                      </li>
+                      <li className="category-item">
+                        <div className="category-content">
+                          <input type="checkbox" />
+                          <span className="category-title">Dining</span>
+                        </div>
+                      </li>
+                    </ul>
                   </li>
                   <li className="catalog-item">
-                    <div className="item-content">
-                      <span className="title">Categories</span>
+                    <div
+                      className="catalog-content"
+                      onClick={(e) => handleClick(e)}
+                    >
+                      <span className="catalog-title">Colors</span>
                       <div className="icon-container">
                         <BiChevronDown className="icon" />
                       </div>
                     </div>
+                    <ul className="category-list">
+                      <li className="category-item">
+                        <div className="category-content">
+                          <span
+                            className="product-color"
+                            style={{ backgroundColor: "red" }}
+                          ></span>
+                          <span className="category-title">Red</span>
+                        </div>
+                      </li>
+                      <li className="category-item">
+                        <div className="category-content">
+                          <span
+                            className="product-color"
+                            style={{ backgroundColor: "black" }}
+                          ></span>
+                          <span className="category-title">Black</span>
+                        </div>
+                      </li>
+                      <li className="category-item">
+                        <div className="category-content">
+                          <span
+                            className="product-color"
+                            style={{ backgroundColor: "green" }}
+                          ></span>
+                          <span className="category-title">Green</span>
+                        </div>
+                      </li>
+                      <li className="category-item">
+                        <div className="category-content">
+                          <span
+                            className="product-color"
+                            style={{ backgroundColor: "blue" }}
+                          ></span>
+                          <span className="category-title">Blue</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li className="catalog-item">
+                    <div
+                      className="catalog-content"
+                      onClick={(e) => handleClick(e)}
+                    >
+                      <span className="catalog-title">Materials</span>
+                      <div className="icon-container">
+                        <BiChevronDown className="icon" />
+                      </div>
+                    </div>
+                    <ul className="category-list">
+                      <li className="category-item">
+                        <div className="category-content">
+                          <input type="checkbox" />
+                          <span className="category-title">Home decor</span>
+                        </div>
+                      </li>
+                      <li className="category-item">
+                        <div className="category-content">
+                          <input type="checkbox" />
+                          <span className="category-title">Bathroom</span>
+                        </div>
+                      </li>
+                      <li className="category-item">
+                        <div className="category-content">
+                          <input type="checkbox" />
+                          <span className="category-title">Kitchen</span>
+                        </div>
+                      </li>
+                      <li className="category-item">
+                        <div className="category-content">
+                          <input type="checkbox" />
+                          <span className="category-title">Dining</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li className="catalog-item">
+                    <div
+                      className="catalog-content"
+                      onClick={(e) => handleClick(e)}
+                    >
+                      <span className="catalog-title">Price</span>
+                      <div className="icon-container">
+                        <BiChevronDown className="icon" />
+                      </div>
+                    </div>
+                    <ul className="category-list">
+                      <li className="category-item">
+                        <div className="category-content">
+                          <input type="number" name="minPrice" id="minPrice" />
+                          <span className="dash">-</span>
+                          <input type="number" name="maxPrice" id="maxPrice" />
+                          <button className="btn">
+                            <TbSearch className="search-icon"/>
+                          </button>
+                        </div>
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </section>

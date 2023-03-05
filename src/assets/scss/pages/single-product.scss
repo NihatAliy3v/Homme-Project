@@ -1,0 +1,50 @@
+.single-product {
+  padding-top: 125px;
+
+  .container {
+    .row {
+      .title {
+        color: black;
+      }
+      .single-wrapper {
+        .product-images {
+          .main-img {
+            img {
+              color: red;
+            }
+          }
+          .img-list {
+            img {
+              color: red;
+            }
+          }
+        }
+        .product-info {
+          .product-title {
+            color: red;
+          }
+          .product-code {
+            color: red;
+          }
+          .size-container {
+            .size {
+              color: red;
+            }
+            .product-size {
+              color: red;
+            }
+          }
+          .product-color {
+            color: red;
+          }
+          .product-material {
+            color: red;
+          }
+          .product-price {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}

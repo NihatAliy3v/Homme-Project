@@ -10,11 +10,11 @@ export const Card = ({product}) => {
         <span className="wish-push">
           <IoMdHeartEmpty className="wish-push-icon" />
         </span>
-        <Link className="img">
+        <Link to="/single-product" className="img">
           <img src={product.image} alt="" />
         </Link>
         <div className="content">
-          <Link>
+          <Link to="/single-product">
             <h3 className="product-title">
               Manual potato riser
             </h3>
