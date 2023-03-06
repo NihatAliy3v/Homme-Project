@@ -46,6 +46,9 @@ const CreateProduct = () => {
   const [unistInStock, setUnistInStock] = useState(0);
   const [description, setDescription] = useState("");
   const [productData, setProductData] = useState([]);
+  // ProductImage
+  const [imageProduct, setImageProduct] = useState([]);
+  const [imageProductData, setImageProductData] = useState([]);
 
   useEffect(() => {
     getComments();
@@ -55,6 +58,7 @@ const CreateProduct = () => {
     getMaterials();
     getSubCategories();
     getProducts();
+    getImageProducts();
   }, []);
 
   const getComments = async () => {
@@ -91,6 +95,11 @@ const CreateProduct = () => {
     await axios
       .get("https://localhost:44317/api/Products/getAllWithoutImages")
       .then((res) => setProductData(res.data.data));
+  };
+  const getImageProducts = async () => {
+    await axios
+      .get("https://localhost:44317/api/ProductImages/getAll")
+      .then((res) => setImageProductData(res.data.data));
   };
 
   // Add Comment
@@ -237,6 +246,28 @@ const CreateProduct = () => {
       .delete(`https://localhost:44317/api/Products/delete/${productId}`)
       .then((res) => setProductData(res.data.data));
     getProducts();
+    console.log(productData);
+  };
+  // add ProductImage
+  const productImageSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("productId", productId);
+    formData.append("file", imageProduct[0]);
+
+    await axios.post("https://localhost:44317/api/ProductImages/add", formData);
+    getImageProducts();
+    console.log(productData);
+  };
+  // Delete ProductImage
+  const productImageDelete = async (productImageId) => {
+    const body = {
+      productImageId,
+    };
+    await axios
+      .delete(`https://localhost:44317/api/ProductImages/delete`, body)
+      .then((res) => setProductData(res.data.data));
+    getImageProducts();
     console.log(productData);
   };
   return (
@@ -608,6 +639,52 @@ const CreateProduct = () => {
             })}
           </div>
           <hr />
+          <div className="imageCreate">
+            <h1>imageCreate</h1>
+            <Input
+              type="file"
+              name="productImage"
+              onChange={(e) => setImageProduct(e.target.files)}
+              placeholder="productImage"
+            />
+
+            <select
+              value={productId}
+              onChange={(e) => setProductId(e.target.value)}
+            >
+              {productData?.map((item, index) => (
+                <option key={index} value={item?.productId}>
+                  {item?.productName}
+                </option>
+              ))}
+            </select>
+
+            <button onClick={(e) => productImageSubmit(e)}>Product add</button>
+            <br />
+            <br />
+
+            {imageProductData?.map((item, index) => {
+              return (
+                <div key={index} className="map">
+                  <img
+                    src={`https://localhost:44317/${item.imagePath.replace(
+                      "wwwroot",
+                      ""
+                    )}`}
+                    alt=""
+                  />
+                  {/* wwwroot\ */}
+
+                  <button
+                    className="btn"
+                    onClick={() => productImageDelete(item?.imageProductId)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
