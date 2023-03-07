@@ -10,13 +10,6 @@
   text-decoration: none;
   font-family: "Rubik", sans-serif;
 }
-
-// Container
-.container {
-  width: 1466px;
-  margin: 0 auto;
-}
-
 // Scroll
 body::-webkit-scrollbar {
   background-color: rgba(0, 0, 0, 0.03);
@@ -25,6 +18,12 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.3);
 }
+body,
+html {
+  width: 100%;
+}
 
-
-
+.container{
+  max-width: 96%;
+  margin: 0 auto;
+}

@@ -18,8 +18,25 @@ export default function Swip({ children }) {
         loop={true}
         modules={[Pagination, Navigation]}
         navigation={{
-          prevEl: '.prev',
-          nextEl: '.next',
+          prevEl: ".prev",
+          nextEl: ".next",
+        }}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          300:{
+            slidesPerView: 2,
+          },
+          512: {
+            slidesPerView: 3,
+          },
+          768: {
+            slidesPerView: 4,
+          },
+          1024: {
+            slidesPerView: 5,
+          },
         }}
         className="mySwiper"
       >
