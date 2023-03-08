@@ -6,6 +6,9 @@ import logo from "../assets/images/main_logo.svg";
 import { BiUser, BiChevronDown } from "react-icons/bi";
 import { BsCart2 } from "react-icons/bs";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { AiOutlineMenu } from "react-icons/ai";
+import { TbSearch } from "react-icons/tb";
+
 // Components
 import { NavBar } from "./NavBar";
 import { Search } from "./Search";
@@ -23,11 +26,17 @@ export const Header = () => {
                 <BiChevronDown className="l-down" />
               </Link>
             </div>
+            <div className="res-menu">
+                <AiOutlineMenu className="menu-icon" />
+            </div>
 
             <Link to="/" className="homme-logo">
               <img src={logo} alt="" />
             </Link>
 
+            <div className="res-search">
+                <TbSearch className="search-icon"/>
+            </div>
             <div className="user">
               <div className="register-login">
                 <Link className="login">Sign in</Link>

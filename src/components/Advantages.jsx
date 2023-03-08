@@ -9,7 +9,7 @@ export const Advantages = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="advantages-wrapper">  
+        <div className="advantages-wrapper">
           <Link className="advantage">
             <div className="advantage-icon">
               <BsCreditCard2Front className="icon" />

@@ -43,10 +43,12 @@
       }
       .single-wrapper {
         display: flex;
+        flex-wrap: wrap;
+        width: 100%;
         .product-images {
           .main-img {
             border: 1px solid #e5e8ec;
-            width: 398px;
+            max-width: 398px;
             height: 478px;
             img {
               width: 100%;
@@ -55,7 +57,7 @@
             }
           }
           .img-list {
-            width: 400px;
+            max-width: 400px;
             display: flex;
             margin-top: 20px;
             .img {
@@ -136,6 +138,7 @@
             width: fit-content;
             background-color: #fcfbf8;
             display: flex;
+            flex-wrap: wrap;
             .quantity {
               border: 1px solid #e5e8ec;
               border-radius: 5px;
@@ -165,7 +168,7 @@
                 outline: none;
                 background-color: transparent;
                 cursor: pointer;
-                &.disabled{
+                &.disabled {
                   color: #818ea0;
                 }
               }
@@ -181,12 +184,13 @@
               border-radius: 3px;
               border: 1px solid #a38f7a;
               cursor: pointer;
+              margin-right: 20px;
             }
             .wish-list {
-              margin-left: 20px;
               padding: 1px 6px;
               display: flex;
               align-items: center;
+              padding: 10px 0;
               cursor: pointer;
               .wish-icon {
                 font-size: 16px;
@@ -197,6 +201,31 @@
                 font-weight: 300;
               }
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .single-product {
+    padding-top: 75px;
+  }
+}
+@media (max-width: 768px) {
+  .single-product {
+    .container {
+      .row {
+        .single-wrapper {
+          .product-images {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+          }
+          .product-info {
+            width: 100%;
           }
         }
       }

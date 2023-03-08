@@ -64,7 +64,11 @@ const SingleProduct = () => {
                     </button>
                   )}
 
-                  <input type="number" value={count} />
+                  <input
+                    type="number"
+                    value={count}
+                    onChange={(event) => setCount(parseInt(event.target.value))}
+                  />
                   <button className="btn" onClick={() => setCount(count + 1)}>
                     +
                   </button>

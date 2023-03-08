@@ -12,8 +12,7 @@ export default function Swip({ children }) {
   return (
     <>
       <Swiper
-        slidesPerView={5}
-        slidesPerGroup={5}
+        slidesPerGroup={1}
         spaceBetween={40}
         loop={true}
         modules={[Pagination, Navigation]}
@@ -25,7 +24,7 @@ export default function Swip({ children }) {
           0: {
             slidesPerView: 1,
           },
-          300:{
+          400:{
             slidesPerView: 2,
           },
           512: {
