@@ -28,10 +28,84 @@
             }
           }
         }
-        .res-menu{
+        .mb-menu {
           display: none;
-          .menu-icon{
+          .mb-nav {
+            display: none;
+            height: 100%;
+            background-color: #fff;
+            position: fixed;
+            width: 100%;
+            max-width: 425px;
+            left: 0;
+            top: 0;
+            &.active {
+              display: block;
+            }
+            .mb-nav-top {
+              padding: 24px 20px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              border-bottom: solid 1px #ccc;
+
+              .homme-logo {
+                width: 177px;
+                height: 30px;
+                display: block;
+                img {
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+            }
+            .nav-main {
+              overflow-y: scroll;
+              height: 80%;
+              .nav-list {
+                .nav-item {
+                  border-bottom: solid 1px #ccc;
+                  .nav-link {
+                    padding: 15px 20px;
+                    display: block;
+                    color: #5c4d3f;
+                    font-size: 16px;
+                    font-weight: 300;
+                    line-height: 16px;
+                  }
+                }
+              }
+              .mb-register-login {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 16px 20px;
+                .login {
+                  display: flex;
+                  align-items: center;
+                  width: fit-content;
+                  height: 40px;
+                  padding: 0 20px;
+                  color: #fff;
+                  margin-right: 16px;
+                  background-color: #a38f7a;
+                  font-weight: 300;
+                  border-radius: 3px;
+                }
+                .register {
+                  color: #5c4d3f;
+                  font-weight: 300;
+                }
+              }
+            }
+            .mb-nav-bottom{
+              padding: 10px 20px;
+            }
+          }
+
+          .menu-icon {
             font-size: 40px;
+            color: #755847;
           }
         }
         .homme-logo {
@@ -42,12 +116,12 @@
             height: 100%;
           }
         }
-        .res-search{
+        .mb-search {
           display: none;
-          .search-icon{
+          .search-icon {
             font-size: 30px;
+            color: #755847;
           }
-
         }
         .user {
           display: flex;
@@ -118,9 +192,6 @@
   }
 }
 
-
-
-
 @media (max-width: 1024px) {
   .header {
     .header-top {
@@ -129,13 +200,13 @@
           .left {
             display: none;
           }
-          .res-menu{
+          .mb-menu {
             display: block;
           }
-          .res-search{
+          .mb-search {
             display: block;
           }
-          .user{
+          .user {
             display: none;
           }
         }
@@ -143,5 +214,3 @@
     }
   }
 }
-
-
