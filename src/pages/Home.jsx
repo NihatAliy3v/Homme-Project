@@ -76,7 +76,7 @@ const Home = () => {
       </section>
 
       <section className="new-products">
-        <HomeProducts data={data} title="New products" />
+        <HomeProducts data={data} title="New products" viewAll="newin" />
       </section>
 
       <section className="home-decoration">
@@ -89,7 +89,7 @@ const Home = () => {
       </section>
 
       <section className="bestseller">
-        <HomeProducts data={data} title="Bestseller" />
+        <HomeProducts data={data} title="Bestseller" viewAll="newin" />
       </section>
 
       <section className="home-accessories">

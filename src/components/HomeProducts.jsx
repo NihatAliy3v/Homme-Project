@@ -12,13 +12,13 @@ import {
 // Components
 import { Card } from "./Card";
 
-export const HomeProducts = ({ data, title }) => {
+export const HomeProducts = ({ data, title, viewAll }) => {
   return (
     <div className="container">
       <div className="row">
         <div className="products-header">
           <h2 className="title">{title}</h2>
-          <Link className="view-all">
+          <Link to={viewAll} className="view-all">
             View all
             <HiArrowLongRight className="arrow-view" />
           </Link>
@@ -28,7 +28,7 @@ export const HomeProducts = ({ data, title }) => {
           <Swip>
             {data.map((item, index) => (
               <SwiperSlide key={index}>
-                <Card product={item}/>
+                <Card product={item} />
               </SwiperSlide>
             ))}
           </Swip>

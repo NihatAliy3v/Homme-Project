@@ -15,6 +15,7 @@ import { useState } from "react";
 
 export const Header = () => {
   const [menu, setMenu] = useState(false);
+  const [SearchMenu, setSearchMenu] = useState(false);
   return (
     <header className="header">
       <div className="header-top">
@@ -42,9 +43,7 @@ export const Header = () => {
                   >
                     <img src={logo} alt="" />
                   </Link>
-                  <div>
-                    <BsXLg className="x-icon" onClick={() => setMenu(false)} />
-                  </div>
+                  <BsXLg className="x-icon" onClick={() => setMenu(false)} />
                 </div>
                 <div className="nav-main">
                   <ul className="nav-list" onClick={() => setMenu(false)}>
@@ -90,11 +89,25 @@ export const Header = () => {
               <img src={logo} alt="" />
             </Link>
 
-            <div className="mb-search">
-              <TbSearch className="search-icon" />
+            <div className="mb-search-container">
+              <TbSearch
+                className="mb-search-icon"
+                onClick={() => setSearchMenu(true)}
+              />
+              <div className={`mb-search ${SearchMenu ? "active" : ""}`}>
+                <div className="mb-search-top">
+                  <BsXLg
+                    className="x-icon"
+                    onClick={() => setSearchMenu(false)}
+                  />
+                </div>
+                <div className="search-main">
+                  <Search />
+                </div>
+              </div>
             </div>
             <div className="user">
-              <div className="register-login">
+              <div className="register-login-link">
                 <Link className="login">Sign in</Link>
                 <span className="drop">/</span>
                 <Link className="register">Signup</Link>
@@ -102,10 +115,10 @@ export const Header = () => {
               <Link className="profile">
                 <BiUser className="profile-icon" />
               </Link>
-              <Link className="wish-list">
+              <Link className="wish-list-link">
                 <IoMdHeartEmpty className="wish-list-icon" />
               </Link>
-              <Link className="cart">
+              <Link to="/cart" className="cart-link">
                 <BsCart2 className="cart-icon" />
                 <div className="numerical">
                   <span className="total">Total</span>

@@ -1,13 +1,14 @@
 .single-product {
   padding-top: 125px;
-
+  
   .container {
     .row {
       .head-title {
         padding: 32px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         .breadcrumb {
-          display: flex;
-          align-items: center;
           line-height: 13px;
           .prevent-link,
           .lastest {
