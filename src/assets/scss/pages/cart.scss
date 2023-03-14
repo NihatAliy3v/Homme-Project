@@ -51,14 +51,16 @@
             line-height: 24px;
           }
         }
-        .cart-wrapper{
-            display: flex;
-            .cart-list{
-                width: 75%;
-            }
-            .order-summary-container{
-
-            }
+        .cart-wrapper {
+          display: flex;
+          .cart-list {
+            width: 75.8%;
+            margin-top: 40px;
+          }
+          .order-summary-container {
+            width: 25.2%;
+            padding-left: 32px;
+          }
         }
       }
     }

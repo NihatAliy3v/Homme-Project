@@ -2,6 +2,7 @@ import React from "react";
 import { VscChevronRight } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import { CartProduct } from "../components/CartProduct";
+import { CartSummary } from "../components/CartSummary";
 
 const Cart = () => {
   return (
@@ -22,9 +23,12 @@ const Cart = () => {
             <section className="cart-wrapper">
               <section className="cart-list">
                 <CartProduct />
+                <CartProduct />
               </section>
 
-              <section className="order-summary-container"></section>
+              <section className="order-summary-container">
+                <CartSummary />
+              </section>
             </section>
           </div>
         </div>
