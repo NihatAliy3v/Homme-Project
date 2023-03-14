@@ -10,6 +10,7 @@ import { HomeDesign } from "../components/HomeDesign";
 import { ShopNow } from "../components/ShopNow";
 import { CollectionDecoration } from "../components/CollectionDecoration";
 import { Advantages } from "../components/Advantages";
+import { useEffect } from "react";
 
 const Home = () => {
   const data = [
@@ -62,6 +63,10 @@ const Home = () => {
       image: heroBanner,
     },
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <main className="home">

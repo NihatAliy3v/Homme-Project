@@ -1,7 +1,113 @@
 .cart-product {
-  width: 1103px;
-  padding: 30px;
+  width: 100%;
+  padding: 30px 45px;
   border: 1px solid #e5e8ec;
   border-radius: 10px;
-  height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  position: relative;
+  .product-images {
+    height: 111px;
+    img {
+      height: 100%;
+    }
+  }
+  .product-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 16px;
+    .product-title {
+      color: #5c4d3f;
+      font-size: 15px;
+      font-weight: 400;
+      padding-top: 10px;
+      letter-spacing: -0.5px;
+    }
+    .product-price {
+      font-size: 19px;
+      color: #4a3526;
+      font-weight: 500;
+      display: flex;
+      align-self: center;
+      margin-left: 170px;
+      span {
+        padding-left: 5px;
+      }
+    }
+    .product-amount {
+      margin-right: 30px;
+      .product-size {
+        display: flex;
+        font-size: 13px;
+        color: #4a3526;
+        font-weight: 300;
+        padding: 0 16px 8px 0;
+        span {
+          padding-right: 5px;
+          font-weight: 700;
+        }
+      }
+      .product-quantity {
+        display: flex;
+        align-items: center;
+        padding-right: 16px;
+        span {
+          font-size: 13px;
+          color: #4a3526;
+          padding-right: 5px;
+          font-weight: 700;
+        }
+        .quantity {
+          border: 1px solid #e5e8ec;
+          border-radius: 5px;
+          height: 40px;
+          display: flex;
+          margin-right: 8px;
+          width: fit-content;
+          input {
+            width: 32px;
+            border: none;
+            outline: none;
+            text-align: center;
+            height: 100%;
+
+            background-color: #fff;
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+            }
+          }
+          .btn {
+            height: 100%;
+            padding: 8px 13px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #5c4d3f;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            cursor: pointer;
+            &.disabled {
+              color: #818ea0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .delete-cart{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    .delete-icon{
+      font-size: 18px;
+    }
+  }
 }

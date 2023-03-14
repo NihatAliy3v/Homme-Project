@@ -6,10 +6,13 @@ import productImage from "../assets/images/product-img.jpg";
 // Router
 import { Link } from "react-router-dom";
 // React
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const SingleProduct = () => {
   const [count, setCount] = useState(0);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <main className="single-product">
@@ -17,7 +20,9 @@ const SingleProduct = () => {
         <div className="row">
           <div className="head-title">
             <div className="breadcrumb">
-              <Link className="prevent-link">Homme</Link>
+              <Link to="/" className="prevent-link">
+                Homme
+              </Link>
               <VscChevronRight className="arright-icon" />
               <span className="lastest">Cast iron teapot (900 ml)</span>
             </div>

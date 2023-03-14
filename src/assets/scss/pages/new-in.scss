@@ -217,18 +217,16 @@
 @media (max-width: 1024px) {
   .new-in {
     padding-top: 75px;
-    .wrapper {
+    .main-wrapper {
       .container {
         .row {
-          .main-wrapper {
-            .product-list-side {
-              display: none;
-            }
-            .product-list-main {
-              .product-list {
-                .card {
-                  width: 33.3%;
-                }
+          .product-list-side {
+            display: none;
+          }
+          .product-list-main {
+            .product-list {
+              .card {
+                width: 33.3%;
               }
             }
           }
@@ -240,15 +238,13 @@
 
 @media (max-width: 768px) {
   .new-in {
-    .wrapper {
+    .main-wrapper {
       .container {
         .row {
-          .main-wrapper {
-            .product-list-main {
-              .product-list {
-                .card {
-                  width: 33.3%;
-                }
+          .product-list-main {
+            .product-list {
+              .card {
+                width: 33.3%;
               }
             }
           }
@@ -260,15 +256,13 @@
 
 @media (max-width: 512px) {
   .new-in {
-    .wrapper {
+    .main-wrapper {
       .container {
         .row {
-          .main-wrapper {
-            .product-list-main {
-              .product-list {
-                .card {
-                  width: 50%;
-                }
+          .product-list-main {
+            .product-list {
+              .card {
+                width: 50%;
               }
             }
           }

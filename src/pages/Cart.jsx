@@ -21,9 +21,7 @@ const Cart = () => {
             </div>
             <section className="cart-wrapper">
               <section className="cart-list">
-                <div className="cart-item">
-                  <CartProduct />
-                </div>
+                <CartProduct />
               </section>
 
               <section className="order-summary-container"></section>

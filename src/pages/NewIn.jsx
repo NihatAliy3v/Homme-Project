@@ -8,6 +8,7 @@ import { BiChevronDown } from "react-icons/bi";
 import { Link } from "react-router-dom";
 // Images
 import heroBanner from "../assets/images/hero-banner.jpg";
+import { useEffect } from "react";
 
 const NewIn = () => {
   const data = [
@@ -64,12 +65,17 @@ const NewIn = () => {
     const item = e.target;
     item.classList.toggle("active");
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <main className="new-in">
       <div className="head-title">
         <div className="breadcrumb">
-          <Link className="prevent-link">Homme</Link>
+          <Link to="/" className="prevent-link">
+            Homme
+          </Link>
           <VscChevronRight className="arright-icon" />
           <span className="lastest">New In</span>
         </div>
@@ -241,10 +247,7 @@ const NewIn = () => {
                   </ul>
                 </li>
                 <li className="catalog-item">
-                  <div
-                    className="catalog-content"
-                    onClick={(e) => handleClick(e)}
-                  >
+                  <div className="catalog-content active">
                     <span className="catalog-title">Price</span>
                     <div className="icon-container">
                       <BiChevronDown className="icon" />
@@ -253,9 +256,19 @@ const NewIn = () => {
                   <ul className="category-list">
                     <li className="category-item">
                       <div className="category-content">
-                        <input type="number" name="minPrice" id="minPrice" />
+                        <input
+                          type="number"
+                          name="minPrice"
+                          id="minPrice"
+                          placeholder="4"
+                        />
                         <span className="dash">-</span>
-                        <input type="number" name="maxPrice" id="maxPrice" />
+                        <input
+                          type="number"
+                          name="maxPrice"
+                          id="maxPrice"
+                          placeholder="750"
+                        />
                         <button className="btn">
                           <TbSearch className="search-icon" />
                         </button>
