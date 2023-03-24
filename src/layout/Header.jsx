@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 // Images
 import logo from "../assets/images/main_logo.svg";
+
 // Icons
 import { BiUser, BiChevronDown } from "react-icons/bi";
 import { BsCart2, BsXLg } from "react-icons/bs";
@@ -9,8 +10,8 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { AiOutlineMenu } from "react-icons/ai";
 import { TbSearch } from "react-icons/tb";
 // Components
-import { NavBar } from "./NavBar";
-import { Search } from "./Search";
+import { NavBar } from "../components/NavBar";
+import { Search } from "../components/Search";
 import { useState } from "react";
 
 export const Header = () => {

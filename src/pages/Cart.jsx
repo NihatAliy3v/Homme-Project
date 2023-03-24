@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { VscChevronRight } from "react-icons/vsc";
 import { Link } from "react-router-dom";
-import { CartProduct } from "../components/CartProduct";
-import { CartSummary } from "../components/CartSummary";
+import { CartProduct } from "../components/cart/CartProduct";
+import { CartSummary } from "../components/cart/CartSummary";
 
 const Cart = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <main className="cart">
       <section className="cart-main">

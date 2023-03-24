@@ -1,6 +1,6 @@
 import { useState } from "react";
 // Images
-import productImage from "../assets/images/product-img.jpg";
+import productImage from "../../assets/images/product-img.jpg";
 // Icons
 import { IoTrashOutline } from "react-icons/io5";
 

@@ -5,65 +5,24 @@ import accessoriesImage from "../assets/images/accessories-img.jpg";
 import categoryDecoration from "../assets/images/category-decoration.jpg";
 
 // Components
-import { HomeProducts } from "../components/HomeProducts";
-import { HomeDesign } from "../components/HomeDesign";
-import { ShopNow } from "../components/ShopNow";
-import { CollectionDecoration } from "../components/CollectionDecoration";
-import { Advantages } from "../components/Advantages";
-import { useEffect } from "react";
+import { HomeProducts } from "../components/home/HomeProducts";
+import { HomeDesign } from "../components/home/HomeDesign";
+import { ShopNow } from "../components/home/ShopNow";
+import { CollectionDecoration } from "../components/home/CollectionDecoration";
+import { Advantages } from "../components/home/Advantages";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Home = () => {
-  const data = [
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-  ];
-
+  const [productData, setProductData] = useState([]);
+  useEffect(() => {
+    getProducts();
+  }, []);
+  const getProducts = async () => {
+    await axios
+      .get("https://localhost:44317/api/Products/getAll")
+      .then((res) => setProductData(res.data.data));
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -81,7 +40,12 @@ const Home = () => {
       </section>
 
       <section className="new-products">
-        <HomeProducts data={data} title="New products" viewAll="newin" />
+        <HomeProducts
+          data={productData}
+          title="New products"
+          viewAll="newin"
+          navigationClassName="mySwiper"
+        />
       </section>
 
       <section className="home-decoration">
@@ -94,7 +58,12 @@ const Home = () => {
       </section>
 
       <section className="bestseller">
-        <HomeProducts data={data} title="Bestseller" viewAll="newin" />
+        <HomeProducts
+          data={productData}
+          title="Bestseller"
+          viewAll="newin"
+          navigationClassName="mySwiper2"
+        />
       </section>
 
       <section className="home-accessories">
@@ -114,7 +83,11 @@ const Home = () => {
       </section>
 
       <section className="recent-viewed">
-        <HomeProducts data={data} title="Recent viewed" />
+        <HomeProducts
+          data={productData}
+          title="Recent viewed"
+          navigationClassName="asfa"
+        />
       </section>
 
       <section className="advantages">

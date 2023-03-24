@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 // Images
 import logo from "../assets/images/main_logo.svg";
+
 // Icons
 import { AiOutlineInstagram } from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";

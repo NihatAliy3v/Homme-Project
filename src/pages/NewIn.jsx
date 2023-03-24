@@ -7,60 +7,21 @@ import { BiChevronDown } from "react-icons/bi";
 // Router
 import { Link } from "react-router-dom";
 // Images
-import heroBanner from "../assets/images/hero-banner.jpg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const NewIn = () => {
-  const data = [
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-    {
-      image: heroBanner,
-    },
-  ];
+  // Product
+  const [productData, setProductData] = useState([]);
+  useEffect(() => {
+    getProducts();
+  }, []);
+  const getProducts = async () => {
+    await axios
+      .get("https://localhost:44317/api/Products/getAll")
+      .then((res) => setProductData(res.data.data));
+  };
+
   const handleClick = (e) => {
     const item = e.target;
     item.classList.toggle("active");
@@ -85,177 +46,96 @@ const NewIn = () => {
         <div className="container">
           <div className="row">
             <section className="product-list-side">
-              <ul className="catalog-list">
-                <li className="catalog-item">
+              <ul className="filter-list">
+                <li className="filter-item">
                   <div
-                    className="catalog-content"
+                    className="filter-content"
                     onClick={(e) => handleClick(e)}
                   >
-                    <span className="catalog-title">Categories</span>
+                    <span className="filter-title">Categories</span>
                     <div className="icon-container">
                       <BiChevronDown className="icon" />
                     </div>
                   </div>
-                  <ul className="category-list">
-                    <li className="category-item">
-                      <div className="category-content">
+                  <ul className="catalog-list">
+                    <li className="catalog-item">
+                      <div className="catalog-content">
                         <input type="checkbox" />
-                        <span className="category-title">Home decor</span>
-                      </div>
-                    </li>
-                    <li className="category-item">
-                      <div className="category-content">
-                        <input type="checkbox" />
-                        <span className="category-title">Bathroom</span>
-                      </div>
-                    </li>
-                    <li className="category-item">
-                      <div className="category-content">
-                        <input type="checkbox" />
-                        <span className="category-title">Kitchen</span>
-                      </div>
-                    </li>
-                    <li className="category-item">
-                      <div className="category-content">
-                        <input type="checkbox" />
-                        <span className="category-title">Dining</span>
+                        <span className="catalog-title">Home decor</span>
                       </div>
                     </li>
                   </ul>
                 </li>
-                <li className="catalog-item">
+                <li className="filter-item">
                   <div
-                    className="catalog-content"
+                    className="filter-content"
                     onClick={(e) => handleClick(e)}
                   >
-                    <span className="catalog-title">Collections</span>
+                    <span className="filter-title">Collections</span>
                     <div className="icon-container">
                       <BiChevronDown className="icon" />
                     </div>
                   </div>
-                  <ul className="category-list">
-                    <li className="category-item">
-                      <div className="category-content">
+                  <ul className="catalog-list">
+                    <li className="catalog-item">
+                      <div className="catalog-content">
                         <input type="checkbox" />
-                        <span className="category-title">Home decor</span>
-                      </div>
-                    </li>
-                    <li className="category-item">
-                      <div className="category-content">
-                        <input type="checkbox" />
-                        <span className="category-title">Bathroom</span>
-                      </div>
-                    </li>
-                    <li className="category-item">
-                      <div className="category-content">
-                        <input type="checkbox" />
-                        <span className="category-title">Kitchen</span>
-                      </div>
-                    </li>
-                    <li className="category-item">
-                      <div className="category-content">
-                        <input type="checkbox" />
-                        <span className="category-title">Dining</span>
+                        <span className="catalog-title">Home decor</span>
                       </div>
                     </li>
                   </ul>
                 </li>
-                <li className="catalog-item">
+                <li className="filter-item">
                   <div
-                    className="catalog-content"
+                    className="filter-content"
                     onClick={(e) => handleClick(e)}
                   >
-                    <span className="catalog-title">Colors</span>
+                    <span className="filter-title">Colors</span>
                     <div className="icon-container">
                       <BiChevronDown className="icon" />
                     </div>
                   </div>
-                  <ul className="category-list">
-                    <li className="category-item">
-                      <div className="category-content">
+                  <ul className="catalog-list">
+                    <li className="catalog-item">
+                      <div className="catalog-content">
                         <span
                           className="product-color"
                           style={{ backgroundColor: "red" }}
                         ></span>
-                        <span className="category-title">Red</span>
-                      </div>
-                    </li>
-                    <li className="category-item">
-                      <div className="category-content">
-                        <span
-                          className="product-color"
-                          style={{ backgroundColor: "black" }}
-                        ></span>
-                        <span className="category-title">Black</span>
-                      </div>
-                    </li>
-                    <li className="category-item">
-                      <div className="category-content">
-                        <span
-                          className="product-color"
-                          style={{ backgroundColor: "green" }}
-                        ></span>
-                        <span className="category-title">Green</span>
-                      </div>
-                    </li>
-                    <li className="category-item">
-                      <div className="category-content">
-                        <span
-                          className="product-color"
-                          style={{ backgroundColor: "blue" }}
-                        ></span>
-                        <span className="category-title">Blue</span>
+                        <span className="catalog-title">Red</span>
                       </div>
                     </li>
                   </ul>
                 </li>
-                <li className="catalog-item">
+                <li className="filter-item">
                   <div
-                    className="catalog-content"
+                    className="filter-content"
                     onClick={(e) => handleClick(e)}
                   >
-                    <span className="catalog-title">Materials</span>
+                    <span className="filter-title">Materials</span>
                     <div className="icon-container">
                       <BiChevronDown className="icon" />
                     </div>
                   </div>
-                  <ul className="category-list">
-                    <li className="category-item">
-                      <div className="category-content">
+                  <ul className="catalog-list">
+                    <li className="catalog-item">
+                      <div className="catalog-content">
                         <input type="checkbox" />
-                        <span className="category-title">Home decor</span>
-                      </div>
-                    </li>
-                    <li className="category-item">
-                      <div className="category-content">
-                        <input type="checkbox" />
-                        <span className="category-title">Bathroom</span>
-                      </div>
-                    </li>
-                    <li className="category-item">
-                      <div className="category-content">
-                        <input type="checkbox" />
-                        <span className="category-title">Kitchen</span>
-                      </div>
-                    </li>
-                    <li className="category-item">
-                      <div className="category-content">
-                        <input type="checkbox" />
-                        <span className="category-title">Dining</span>
+                        <span className="catalog-title">Home decor</span>
                       </div>
                     </li>
                   </ul>
                 </li>
-                <li className="catalog-item">
-                  <div className="catalog-content active">
-                    <span className="catalog-title">Price</span>
+                <li className="filter-item">
+                  <div className="filter-content active">
+                    <span className="filter-title">Price</span>
                     <div className="icon-container">
                       <BiChevronDown className="icon" />
                     </div>
                   </div>
-                  <ul className="category-list">
-                    <li className="category-item">
-                      <div className="category-content">
+                  <ul className="catalog-list">
+                    <li className="catalog-item">
+                      <div className="catalog-content">
                         <input
                           type="number"
                           name="minPrice"
@@ -283,7 +163,7 @@ const NewIn = () => {
                 <span className="products-counter">304 products </span>
               </div>
               <div className="product-list">
-                {data.map((item, index) => (
+                {productData.map((item, index) => (
                   <div key={index} className="card">
                     <Card product={item} />
                   </div>

@@ -50,6 +50,9 @@ const CreateProduct = () => {
   const [imageProduct, setImageProduct] = useState([]);
   const [imageProductData, setImageProductData] = useState([]);
 
+  // withoutImage
+  const [withoutImageProductData, setWithoutImageProductData] = useState([]);
+
   useEffect(() => {
     getComments();
     getCatalogs();
@@ -59,6 +62,8 @@ const CreateProduct = () => {
     getSubCategories();
     getProducts();
     getImageProducts();
+    getWithoutImageProducts();
+    console.log(dataCategory);
   }, []);
 
   const getComments = async () => {
@@ -93,13 +98,18 @@ const CreateProduct = () => {
   };
   const getProducts = async () => {
     await axios
-      .get("https://localhost:44317/api/Products/getAllWithoutImages")
+      .get("https://localhost:44317/api/Products/getAll")
       .then((res) => setProductData(res.data.data));
   };
   const getImageProducts = async () => {
     await axios
       .get("https://localhost:44317/api/ProductImages/getAll")
       .then((res) => setImageProductData(res.data.data));
+  };
+  const getWithoutImageProducts = async () => {
+    await axios
+      .get("https://localhost:44317/api/Products/getAllWithoutImages")
+      .then((res) => setWithoutImageProductData(res.data.data));
   };
 
   // Add Comment
@@ -181,7 +191,7 @@ const CreateProduct = () => {
     getColors();
     console.log(colorData);
   };
-  // add Color
+  // add Material
   const materialSubmit = async (e) => {
     e.preventDefault();
     const body = {
@@ -191,7 +201,7 @@ const CreateProduct = () => {
     getMaterials();
     console.log(materialData);
   };
-  // Delete Color
+  // Delete Material
   const materialDelete = async (materialId) => {
     await axios
       .delete(`https://localhost:44317/api/Materials/delete/${materialId}`)
@@ -238,6 +248,7 @@ const CreateProduct = () => {
     };
     await axios.post("https://localhost:44317/api/Products/add", body);
     getProducts();
+    getWithoutImageProducts();
     console.log(productData);
   };
   // Delete Product
@@ -266,10 +277,16 @@ const CreateProduct = () => {
     };
     await axios
       .delete(`https://localhost:44317/api/ProductImages/delete`, body)
-      .then((res) => setProductData(res.data.data));
+      .then((res) => setImageProductData(res.data.data));
     getImageProducts();
     console.log(productData);
   };
+  const filteredCategory = dataCategory?.filter(
+    (item) => Number(item.catalogId) === Number(catalogId)
+  );
+  const filteredSubCategory = subCategoryData?.filter(
+    (item) => Number(item.categoryId) === Number(categoryId)
+  );
   return (
     <section className="create-products">
       <div className="container">
@@ -518,14 +535,6 @@ const CreateProduct = () => {
             })}
           </div>
           <hr />
-          <hr />
-          <hr />
-          <hr />
-          <hr />
-          <hr />
-          <hr />
-          <hr />
-
           <div className="productCreate">
             <h1>Product</h1>
             <Input
@@ -550,7 +559,7 @@ const CreateProduct = () => {
               placeholder="price"
             />
             <Input
-              type="number"
+              type="text"
               name="size"
               value={size}
               onChange={(e) => setSize(e.target.value)}
@@ -580,11 +589,12 @@ const CreateProduct = () => {
                 </option>
               ))}
             </select>
+
             <select
               value={categoryId}
               onChange={(e) => setCategoryId(e.target.value)}
             >
-              {dataCategory?.map((item, index) => (
+              {filteredCategory?.map((item, index) => (
                 <option key={index} value={item?.categoryId}>
                   {item?.categoryName}
                 </option>
@@ -594,7 +604,7 @@ const CreateProduct = () => {
               value={subCategoryId}
               onChange={(e) => setSubCategoryId(e.target.value)}
             >
-              {subCategoryData?.map((item, index) => (
+              {filteredSubCategory?.map((item, index) => (
                 <option key={index} value={item?.subCategoryId}>
                   {item?.subCategoryName}
                 </option>
@@ -628,6 +638,9 @@ const CreateProduct = () => {
               return (
                 <div key={index} className="map">
                   <p>{item?.productName}</p>
+
+                  {item?.imagesPath[0].imagePath}
+
                   <button
                     className="btn"
                     onClick={() => productDelete(item?.productId)}
@@ -652,7 +665,7 @@ const CreateProduct = () => {
               value={productId}
               onChange={(e) => setProductId(e.target.value)}
             >
-              {productData?.map((item, index) => (
+              {withoutImageProductData?.map((item, index) => (
                 <option key={index} value={item?.productId}>
                   {item?.productName}
                 </option>
@@ -663,11 +676,11 @@ const CreateProduct = () => {
             <br />
             <br />
 
-            {imageProductData?.map((item, index) => {
+            {productData?.map((item, index) => {
               return (
                 <div key={index} className="map">
                   <img
-                    src={`https://localhost:44317/${item.imagePath.replace(
+                    src={`https://localhost:44317/${item?.imagesPath[0].imagePath.replace(
                       "wwwroot",
                       ""
                     )}`}

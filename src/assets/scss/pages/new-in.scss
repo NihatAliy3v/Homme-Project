@@ -75,23 +75,23 @@
             width: 7px;
             display: none;
           }
-          .catalog-list {
+          .filter-list {
             margin-top: 15px;
             width: 100%;
             margin-bottom: auto;
 
-            .catalog-item {
+            .filter-item {
               margin-bottom: 8px;
               border-bottom: solid 1px #e4e4e4;
               overflow: hidden;
 
-              .catalog-content {
+              .filter-content {
                 padding: 8px 0 16px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
 
-                .catalog-title {
+                .filter-title {
                   color: #5c4d3f;
                   font-size: 16px;
                   font-weight: 500;
@@ -120,16 +120,16 @@
                 }
               }
 
-              .category-list {
+              .catalog-list {
                 height: 0;
                 margin-bottom: 0;
               }
-              .catalog-content.active {
-                & + .category-list {
+              .filter-content.active {
+                & + .catalog-list {
                   margin-bottom: 16px;
                   height: 100%;
-                  .category-item {
-                    .category-content {
+                  .catalog-item {
+                    .catalog-content {
                       display: flex;
                       align-items: center;
                       .product-color {
@@ -138,7 +138,7 @@
                         display: block;
                         border-radius: 50%;
                       }
-                      .category-title {
+                      .catalog-title {
                         padding: 7px;
                         font-size: 14px;
                         color: #4a3526;

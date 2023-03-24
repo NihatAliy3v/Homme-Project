@@ -9,15 +9,15 @@
 @import "./pages/cart.scss";
 
 // Components
-@import "./components/header.scss";
+@import "./layout/header.scss";
 @import "./components/search.scss";
 @import "./components/navbar.scss";
-@import "./components/home-products.scss";
-@import "./components/home-decoration.scss";
-@import "./components/shop-now.scss";
-@import "./components/collection-decoration.scss";
-@import "./components/advantages.scss";
-@import "./components/footer.scss";
+@import "./components/home/home-products.scss";
+@import "./components/home/home-decoration.scss";
+@import "./components/home/shop-now.scss";
+@import "./components/home/collection-decoration.scss";
+@import "./components/home/advantages.scss";
+@import "./layout/footer.scss";
 @import "./components/card.scss";
-@import "./components/cart-product.scss";
-@import "./components/cart-summary.scss";
+@import "./components/cart/cart-product.scss";
+@import "./components/cart/cart-summary.scss";

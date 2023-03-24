@@ -1,7 +1,7 @@
 // Router
 import { Link } from "react-router-dom";
 // Swiper
-import Swip from "../swiper";
+import Swip from "../../swiper";
 import { SwiperSlide } from "swiper/react";
 // Icons
 import { HiArrowLongRight } from "react-icons/hi2";
@@ -10,9 +10,11 @@ import {
   MdOutlineKeyboardArrowLeft,
 } from "react-icons/md";
 // Components
-import { Card } from "./Card";
+import { Card } from "../Card";
 
-export const HomeProducts = ({ data, title, viewAll }) => {
+export const HomeProducts = ({ data, title, viewAll, navigationClassName, control }) => {
+
+
   return (
     <div className="container">
       <div className="row">
@@ -25,17 +27,17 @@ export const HomeProducts = ({ data, title, viewAll }) => {
         </div>
 
         <div className="products">
-          <Swip>
+          <Swip navigationClassName={navigationClassName}>
             {data.map((item, index) => (
               <SwiperSlide key={index}>
                 <Card product={item} />
               </SwiperSlide>
             ))}
           </Swip>
-          <button className="prev">
+          <button className={`prev ${navigationClassName}`}>
             <MdOutlineKeyboardArrowLeft />
           </button>
-          <button className="next">
+          <button className={`next ${navigationClassName}`}>
             <MdOutlineKeyboardArrowRight />
           </button>
         </div>

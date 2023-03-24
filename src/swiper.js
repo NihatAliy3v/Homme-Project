@@ -6,25 +6,26 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Pagination, Navigation } from "swiper";
+import { Pagination, Navigation, Controller } from "swiper";
 
-export default function Swip({ children }) {
+export default function Swip({ children, control, navigationClassName }) {
   return (
     <>
       <Swiper
         slidesPerGroup={1}
         spaceBetween={40}
         loop={true}
-        modules={[Pagination, Navigation]}
+        modules={[Pagination, Navigation, Controller]}
         navigation={{
-          prevEl: ".prev",
-          nextEl: ".next",
+          prevEl:  `.prev.${navigationClassName}`,
+          nextEl:  `.next.${navigationClassName}`,
         }}
+        
         breakpoints={{
           0: {
             slidesPerView: 1,
           },
-          400:{
+          400: {
             slidesPerView: 2,
           },
           512: {
