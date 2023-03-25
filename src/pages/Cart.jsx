@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { VscChevronRight } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import { CartProduct } from "../components/cart/CartProduct";
 import { CartSummary } from "../components/cart/CartSummary";
+import CartContext from "../Context/cartContext";
 
 const Cart = () => {
+  const { cart, removeCart, quantityUp,quantityDown } = useContext(CartContext);
+  console.log(cart);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -25,8 +28,16 @@ const Cart = () => {
             </div>
             <section className="cart-wrapper">
               <section className="cart-list">
-                <CartProduct />
-                <CartProduct />
+                {cart?.map((item, index) => (
+                  <CartProduct
+                    key={index}
+                    product={item}
+                    quantity={item.quantity}
+                    quantityUp={() => quantityUp(item.productId)}
+                    quantityDown={() => quantityDown(item.productId)}
+                    onClick={() => removeCart(item.productId)}
+                  />
+                ))}
               </section>
 
               <section className="order-summary-container">

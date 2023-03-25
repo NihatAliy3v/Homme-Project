@@ -12,11 +12,14 @@ import { TbSearch } from "react-icons/tb";
 // Components
 import { NavBar } from "../components/NavBar";
 import { Search } from "../components/Search";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import CartContext from "../Context/cartContext";
 
 export const Header = () => {
   const [menu, setMenu] = useState(false);
   const [SearchMenu, setSearchMenu] = useState(false);
+  const { cart } = useContext(CartContext);
+  const total = cart.reduce((acc, curr) => acc + curr.quantity * curr.price, 0);
   return (
     <header className="header">
       <div className="header-top">
@@ -123,7 +126,7 @@ export const Header = () => {
                 <BsCart2 className="cart-icon" />
                 <div className="numerical">
                   <span className="total">Total</span>
-                  <span className="price">0 &#x20BC;</span>
+                  <span className="price">{total} &#x20BC;</span>
                 </div>
               </Link>
             </div>

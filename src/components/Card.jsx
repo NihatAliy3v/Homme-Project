@@ -1,9 +1,11 @@
 // Icons
+import { useContext } from "react";
 import { IoMdHeartEmpty } from "react-icons/io";
 // Router
 import { Link } from "react-router-dom";
+import CartContext from "../Context/cartContext";
 
-export const Card = ({ product }) => {
+export const Card = ({ product, onClick}) => {
   return (
     <div className="product">
       <span className="new">NEW</span>
@@ -23,7 +25,8 @@ export const Card = ({ product }) => {
         <Link to="/single-product">
           <h3 className="product-title">{product.productName}</h3>
         </Link>
-        <span className="product-price">79.99 &#x20BC;</span>
+        <span className="product-price">{product.price} &#x20BC;</span>
+       
       </div>
     </div>
   );

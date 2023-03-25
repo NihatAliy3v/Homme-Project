@@ -7,19 +7,22 @@ import { BiChevronDown } from "react-icons/bi";
 // Router
 import { Link } from "react-router-dom";
 // Images
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+// Utils
+import CartContext from "../Context/cartContext";
 
 const NewIn = () => {
+  const { addCart, data, setData } = useContext(CartContext);
+
   // Product
-  const [productData, setProductData] = useState([]);
   useEffect(() => {
     getProducts();
   }, []);
   const getProducts = async () => {
     await axios
       .get("https://localhost:44317/api/Products/getAll")
-      .then((res) => setProductData(res.data.data));
+      .then((res) => setData(res.data.data));
   };
 
   const handleClick = (e) => {
@@ -160,12 +163,17 @@ const NewIn = () => {
             </section>
             <section className="product-list-main">
               <div className="product-list-header">
-                <span className="products-counter">304 products </span>
+                <span className="products-counter">
+                  {data.length} products{" "}
+                </span>
               </div>
               <div className="product-list">
-                {productData.map((item, index) => (
+                {data?.map((item, index) => (
                   <div key={index} className="card">
-                    <Card product={item} />
+                    <Card
+                      product={item}
+                      onClick={() => addCart(item.productId)}
+                    />
                   </div>
                 ))}
               </div>
