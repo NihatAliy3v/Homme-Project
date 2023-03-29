@@ -1,5 +1,10 @@
+// Variables
+@import "./variables.scss";
 // Base
 @import "base.scss";
+
+// Mixins
+@import "./mixins.scss";
 
 // Pages
 @import "./pages/home.scss";
@@ -7,6 +12,7 @@
 @import "./pages/single-product.scss";
 @import "./pages/cart.scss";
 @import "./pages/not-found.scss";
+@import "./pages/wish-list.scss";
 
 // Components
 @import "./layout/header.scss";
@@ -22,3 +28,4 @@
 @import "./components/cart/cart-product.scss";
 @import "./components/cart/cart-summary.scss";
 @import "./components/loading.scss";
+@import "./components/head-title.scss";

@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [data, setData] = useState([]);
+  const [cartData, setCartData] = useState([]);
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -16,6 +16,7 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
+  console.log(cartData);
   const addCart = (id, count) => {
     const checkExist = cart.find((item) => item.productId === id);
 
@@ -26,8 +27,9 @@ export const CartProvider = ({ children }) => {
         { ...checkExist, quantity: checkExist.quantity + count },
       ]);
     } else {
-      const product = data.find((item) => item.productId === id);
+      const product = cartData.find((item) => item.productId === id);
       setCart((prev) => [...prev, { ...product, quantity: count }]);
+      console.log();
     }
   };
   const removeCart = (id) => {
@@ -54,8 +56,8 @@ export const CartProvider = ({ children }) => {
         cart,
         addCart,
         removeCart,
-        data,
-        setData,
+        cartData,
+        setCartData,
         quantityUp,
         quantityDown,
       }}

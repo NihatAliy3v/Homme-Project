@@ -1,0 +1,53 @@
+// $border-none: none;
+// $border: solid 1px #e5e8ec;
+@mixin head-title($border, $position) {
+  .head-title {
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: $position;
+    border-bottom: $border;
+    .breadcrumb {
+      margin-bottom: 16px;
+      line-height: 13px;
+      .prevent-link,
+      .lastest {
+        color: #5c4d3f;
+        font-size: 13px;
+        font-weight: 400;
+      }
+      .prevent-link {
+        margin-right: 6px;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -3px;
+          width: 0;
+          height: 1px;
+          transition: all 0.3s;
+          background-color: #4a3526;
+        }
+        &:hover::after {
+          left: 0;
+          width: 100%;
+        }
+      }
+      .arright-icon {
+        font-size: 12px;
+      }
+      .lastest {
+        margin-left: 6px;
+      }
+    }
+    .title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: #4a3526;
+      line-height: 24px;
+    }
+  }
+}

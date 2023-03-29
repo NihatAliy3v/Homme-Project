@@ -32,6 +32,10 @@
     cursor: pointer;
     border: 1px solid #e5e8ec;
     z-index: 9;
+    &.red {
+      color: #fc6161;
+      border-color: #fc6161;
+    }
     &:hover {
       color: #fc6161;
       border-color: #fc6161;

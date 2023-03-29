@@ -19,7 +19,10 @@ export const Header = () => {
   const [menu, setMenu] = useState(false);
   const [SearchMenu, setSearchMenu] = useState(false);
   const { cart } = useContext(CartContext);
-  const total = cart.reduce((acc, curr) => acc + curr.quantity * curr.price, 0);
+
+  const total = cart
+    .reduce((acc, curr) => acc + curr.quantity * curr.price, 0)
+    .toFixed(2);
   return (
     <header className="header">
       <div className="header-top">
@@ -119,11 +122,12 @@ export const Header = () => {
               <Link className="profile">
                 <BiUser className="profile-icon" />
               </Link>
-              <Link className="wish-list-link">
+              <Link to="/wish-list" className="wish-list-link">
                 <IoMdHeartEmpty className="wish-list-icon" />
               </Link>
               <Link to="/cart" className="cart-link">
                 <BsCart2 className="cart-icon" />
+
                 <div className="numerical">
                   <span className="total">Total</span>
                   <span className="price">{total} &#x20BC;</span>

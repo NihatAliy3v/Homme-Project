@@ -4,8 +4,9 @@ import CartContext from "../../Context/cartContext";
 
 export const CartSummary = () => {
   const { cart } = useContext(CartContext);
-  const total = cart.reduce((acc, curr) => acc + curr.quantity * curr.price, 0);
-
+  const total = cart
+    .reduce((acc, curr) => acc + curr.quantity * curr.price, 0)
+    .toFixed(2);
   return (
     <div className="cart-summary">
       <div className="summary-order">

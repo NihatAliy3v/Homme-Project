@@ -10,24 +10,29 @@ import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
 import Products from "./pages/Products";
 import NotFound from "./pages/NotFound";
+import WishList from "./pages/WishList";
 // Utils
 import { CartProvider } from "./Context/cartContext";
+import { HeartProvider } from "./Context/heartContext";
 
 function App() {
   return (
     <div className="App">
-      <CartProvider>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/newin" element={<NewIn />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<SingleProduct />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </CartProvider>
+      <HeartProvider>
+        <CartProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/newin" element={<NewIn />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<SingleProduct />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/wish-list" element={<WishList />} />
+          </Routes>
+          <Footer />
+        </CartProvider>
+      </HeartProvider>
     </div>
   );
 }

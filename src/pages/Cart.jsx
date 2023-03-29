@@ -3,10 +3,12 @@ import { VscChevronRight } from "react-icons/vsc";
 import { Link } from "react-router-dom";
 import { CartProduct } from "../components/cart/CartProduct";
 import { CartSummary } from "../components/cart/CartSummary";
+import { HeadTitle } from "../components/HeadTitle";
 import CartContext from "../Context/cartContext";
 
 const Cart = () => {
-  const { cart, removeCart, quantityUp,quantityDown } = useContext(CartContext);
+  const { cart, removeCart, quantityUp, quantityDown } =
+    useContext(CartContext);
   console.log(cart);
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -16,16 +18,8 @@ const Cart = () => {
       <section className="cart-main">
         <div className="container">
           <div className="row">
-            <div className="head-title">
-              <div className="breadcrumb">
-                <Link to="/" className="prevent-link">
-                  Homme
-                </Link>
-                <VscChevronRight className="arright-icon" />
-                <span className="lastest">Shopping cart</span>
-              </div>
-              <h1 className="title">Shopping cart</h1>
-            </div>
+            <HeadTitle name="Shopping cart" title={true} />
+
             <section className="cart-wrapper">
               <section className="cart-list">
                 {cart?.map((item, index) => (

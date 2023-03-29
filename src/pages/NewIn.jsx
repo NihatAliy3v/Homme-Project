@@ -12,10 +12,13 @@ import axios from "axios";
 // Utils
 import CartContext from "../Context/cartContext";
 import { Loading } from "../components/Loading";
+import { HeadTitle } from "../components/HeadTitle";
+import HeartContext from "../Context/heartContext";
 
 const NewIn = () => {
-  const { addCart, data, setData } = useContext(CartContext);
+  const { addHeart, removeHeart, data, setData } = useContext(HeartContext);
   const [loading, setLoading] = useState(false);
+  const { cartData, setCartData } = useContext(CartContext);
   // Product
   useEffect(() => {
     getProducts();
@@ -25,6 +28,7 @@ const NewIn = () => {
       .get("https://localhost:44317/api/Products/getAll")
       .then((res) => setData(res.data.data))
       .then(() => setLoading(true));
+    setCartData(data);
   };
 
   const handleClick = (e) => {
@@ -40,16 +44,7 @@ const NewIn = () => {
   } else {
     return (
       <main className="new-in">
-        <div className="head-title">
-          <div className="breadcrumb">
-            <Link to="/" className="prevent-link">
-              Homme
-            </Link>
-            <VscChevronRight className="arright-icon" />
-            <span className="lastest">New In</span>
-          </div>
-          <h1 className="title">New In</h1>
-        </div>
+        <HeadTitle name="New In" title={true} />
         <section className="main-wrapper">
           <div className="container">
             <div className="row">
@@ -168,16 +163,16 @@ const NewIn = () => {
               </section>
               <section className="product-list-main">
                 <div className="product-list-header">
-                  <span className="products-counter">
-                    {data.length} products{" "}
-                  </span>
+                  <span className="products-counter">{data.length}</span>
                 </div>
                 <div className="product-list">
                   {data?.map((item, index) => (
                     <div key={index} className="card">
                       <Card
                         product={item}
-                        onClick={() => addCart(item.productId)}
+                        addHeart={() => addHeart(item?.productId)}
+                        removeHeart={() => removeHeart(item?.productId)}
+                        variant="add"
                       />
                     </div>
                   ))}
