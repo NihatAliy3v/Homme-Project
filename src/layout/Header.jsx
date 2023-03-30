@@ -14,12 +14,15 @@ import { NavBar } from "../components/NavBar";
 import { Search } from "../components/Search";
 import { useContext, useState } from "react";
 import CartContext from "../Context/cartContext";
+import HeartContext from "../Context/heartContext";
 
 export const Header = () => {
   const [menu, setMenu] = useState(false);
   const [SearchMenu, setSearchMenu] = useState(false);
   const { cart } = useContext(CartContext);
+  const { heart } = useContext(HeartContext);
 
+  const cartQuantity = cart.reduce((acc, curr) => acc + curr.quantity, 0);
   const total = cart
     .reduce((acc, curr) => acc + curr.quantity * curr.price, 0)
     .toFixed(2);
@@ -124,10 +127,13 @@ export const Header = () => {
               </Link>
               <Link to="/wish-list" className="wish-list-link">
                 <IoMdHeartEmpty className="wish-list-icon" />
+                <span className="amount-heart">{heart.length}</span>
               </Link>
               <Link to="/cart" className="cart-link">
-                <BsCart2 className="cart-icon" />
-
+                <div className="cart-icon-container ">
+                  <BsCart2 className="cart-icon" />
+                  <span className="amount-cart">{cartQuantity}</span>
+                </div>
                 <div className="numerical">
                   <span className="total">Total</span>
                   <span className="price">{total} &#x20BC;</span>

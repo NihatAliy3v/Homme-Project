@@ -16,9 +16,9 @@ import { HeadTitle } from "../components/HeadTitle";
 import HeartContext from "../Context/heartContext";
 
 const NewIn = () => {
-  const { addHeart, removeHeart, data, setData } = useContext(HeartContext);
+  const { addHeart, removeHeart, heartData, setHeartData } =
+    useContext(HeartContext);
   const [loading, setLoading] = useState(false);
-  const { cartData, setCartData } = useContext(CartContext);
   // Product
   useEffect(() => {
     getProducts();
@@ -26,9 +26,8 @@ const NewIn = () => {
   const getProducts = async () => {
     await axios
       .get("https://localhost:44317/api/Products/getAll")
-      .then((res) => setData(res.data.data))
+      .then((res) => setHeartData(res.data.data))
       .then(() => setLoading(true));
-    setCartData(data);
   };
 
   const handleClick = (e) => {
@@ -163,10 +162,12 @@ const NewIn = () => {
               </section>
               <section className="product-list-main">
                 <div className="product-list-header">
-                  <span className="products-counter">{data.length}</span>
+                  <span className="products-counter">
+                    {heartData.length} products
+                  </span>
                 </div>
                 <div className="product-list">
-                  {data?.map((item, index) => (
+                  {heartData?.map((item, index) => (
                     <div key={index} className="card">
                       <Card
                         product={item}

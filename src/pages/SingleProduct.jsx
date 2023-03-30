@@ -1,5 +1,5 @@
 // Icons
-import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 
 // React
 import { useContext, useEffect, useState } from "react";
@@ -16,8 +16,10 @@ import { HeadTitle } from "../components/HeadTitle";
 const SingleProduct = () => {
   const [count, setCount] = useState(1);
   const [loading, setLoading] = useState(false);
-  const { addCart } = useContext(CartContext);
+  const { addCart, setCartData } = useContext(CartContext);
   const { removeHeart, addHeart } = useContext(HeartContext);
+  const { setHeartData, heart } = useContext(HeartContext);
+
   const [data, setData] = useState();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -26,15 +28,29 @@ const SingleProduct = () => {
   const { id } = useParams();
   // Product
   useEffect(() => {
+    getProduct();
     getProducts();
   }, []);
-  const getProducts = async () => {
+  const getProduct = async () => {
     await axios
       .get(`https://localhost:44317/api/Products/byId/${id}`)
       .then((res) => setData(res.data.data))
       .then(() => setLoading(true));
   };
-
+  const getProducts = async () => {
+    try {
+      const response = await axios.get(
+        "https://localhost:44317/api/Products/getAll"
+      );
+      setCartData(response.data.data);
+      setHeartData(response.data.data);
+      setLoading(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const heartcheck = heart.some((item) => item.productId === Number(id));
+  const [photoIndex, setPhotoIndex] = useState(0);
   if (!loading) {
     return <Loading />;
   } else {
@@ -47,16 +63,19 @@ const SingleProduct = () => {
               <div className="product-images">
                 <div className="main-img">
                   <img
-                    src={`https://localhost:44317/${data?.imagesPath[0].imagePath.replace(
-                      "wwwroot",
-                      ""
-                    )}`}
+                    src={`https://localhost:44317/${data?.imagesPath[
+                      photoIndex
+                    ].imagePath.replace("wwwroot", "")}`}
                     alt=""
                   />
                 </div>
                 <div className="img-list">
                   {data?.imagesPath.map((item, index) => (
-                    <div className="img" key={index}>
+                    <div
+                      className="img"
+                      key={index}
+                      onClick={() => setPhotoIndex(index)}
+                    >
                       <img
                         src={`https://localhost:44317/${item.imagePath.replace(
                           "wwwroot",
@@ -118,20 +137,25 @@ const SingleProduct = () => {
                   >
                     Add to Cart
                   </button>
-                  <div
-                    className="wish-list"
-                    onClick={() => addHeart(data.productId)}
-                  >
-                    <IoMdHeartEmpty className="wish-icon" />
-                    <span>Add to Wish list</span>
-                  </div>
-                  <div
-                    className="wish-list"
-                    onClick={() => removeHeart(data.productId)}
-                  >
-                    <IoMdHeartEmpty className="wish-icon" />
-                    <span>Add to Wish list</span>
-                  </div>
+
+                  {!heartcheck && (
+                    <div
+                      className="wish-list"
+                      onClick={() => addHeart(data.productId)}
+                    >
+                      <IoMdHeartEmpty className="wish-icon" />
+                      <span>Add to Wish list</span>
+                    </div>
+                  )}
+                  {heartcheck && (
+                    <div
+                      className="wish-list"
+                      onClick={() => removeHeart(data.productId)}
+                    >
+                      <IoMdHeart className="wish-icon" />
+                      <span>Remove from Wish list</span>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

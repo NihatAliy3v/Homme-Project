@@ -11,10 +11,11 @@ import {
 } from "react-icons/md";
 // Components
 import { Card } from "../Card";
+import { useContext } from "react";
+import HeartContext from "../../Context/heartContext";
 
-export const HomeProducts = ({ data, title, viewAll, navigationClassName, control }) => {
-
-
+export const HomeProducts = ({ data, title, viewAll, navigationClassName }) => {
+  const { addHeart, removeHeart } = useContext(HeartContext);
   return (
     <div className="container">
       <div className="row">
@@ -30,7 +31,12 @@ export const HomeProducts = ({ data, title, viewAll, navigationClassName, contro
           <Swip navigationClassName={navigationClassName}>
             {data.map((item, index) => (
               <SwiperSlide key={index}>
-                <Card product={item} />
+                <Card
+                  product={item}
+                  addHeart={() => addHeart(item?.productId)}
+                  removeHeart={() => removeHeart(item?.productId)}
+                  variant="add"
+                />
               </SwiperSlide>
             ))}
           </Swip>

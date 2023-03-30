@@ -194,17 +194,52 @@
           .wish-list-link {
             margin: 0 15px;
             display: flex;
+            position: relative;
             .wish-list-icon {
               width: 30px;
               height: 30px;
+            }
+            .amount-heart {
+              display: flex;
+              position: absolute;
+              width: 18px;
+              height: 18px;
+              border-radius: 50%;
+              background-color: #ac6f53;
+              justify-content: center;
+              align-items: center;
+              right: -5px;
+              top: -1px;
+              font-size: 10px;
+              font-weight: 500;
+              color: #fff;
             }
           }
           .cart-link {
             margin-left: 15px;
             display: flex;
-            .cart-icon {
-              width: 27px;
-              height: 27px;
+            .cart-icon-container {
+              position: relative;
+              .cart-icon {
+                width: 27px;
+                height: 27px;
+                position: relative;
+              }
+              .amount-cart {
+                display: flex;
+                position: absolute;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                background-color: #ac6f53;
+                justify-content: center;
+                align-items: center;
+                right: -5px;
+                top: -1px;
+                font-size: 10px;
+                font-weight: 500;
+                color: #fff;
+              }
             }
             .numerical {
               display: flex;

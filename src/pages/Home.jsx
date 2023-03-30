@@ -10,20 +10,22 @@ import { HomeDesign } from "../components/home/HomeDesign";
 import { ShopNow } from "../components/home/ShopNow";
 import { CollectionDecoration } from "../components/home/CollectionDecoration";
 import { Advantages } from "../components/home/Advantages";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Loading } from "../components/Loading";
+import HeartContext from "../Context/heartContext";
 
 const Home = () => {
   const [productData, setProductData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const { heartData, setHeartData } = useContext(HeartContext);
   useEffect(() => {
     getProducts();
   }, []);
   const getProducts = async () => {
     await axios
       .get("https://localhost:44317/api/Products/getAll")
-      .then((res) => setProductData(res.data.data))
+      .then((res) => setHeartData(res.data.data))
       .then(() => setLoading(true));
   };
   useEffect(() => {
@@ -46,7 +48,7 @@ const Home = () => {
 
         <section className="new-products">
           <HomeProducts
-            data={productData}
+            data={heartData}
             title="New products"
             viewAll="newin"
             navigationClassName="mySwiper"
@@ -64,7 +66,7 @@ const Home = () => {
 
         <section className="bestseller">
           <HomeProducts
-            data={productData}
+            data={heartData}
             title="Bestseller"
             viewAll="newin"
             navigationClassName="mySwiper2"
@@ -89,7 +91,7 @@ const Home = () => {
 
         <section className="recent-viewed">
           <HomeProducts
-            data={productData}
+            data={heartData}
             title="Recent viewed"
             navigationClassName="asfa"
           />
