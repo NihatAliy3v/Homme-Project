@@ -1,22 +1,23 @@
+// React
+import { useContext, useEffect, useState } from "react";
 // Images
 import heroBanner from "../assets/images/hero-banner.jpg";
 import decorationImage from "../assets/images/decoration-img.jpg";
 import accessoriesImage from "../assets/images/accessories-img.jpg";
 import categoryDecoration from "../assets/images/category-decoration.jpg";
-
+// Contexts
+import HeartContext from "../Context/heartContext";
 // Components
 import { HomeProducts } from "../components/home/HomeProducts";
 import { HomeDesign } from "../components/home/HomeDesign";
 import { ShopNow } from "../components/home/ShopNow";
 import { CollectionDecoration } from "../components/home/CollectionDecoration";
 import { Advantages } from "../components/home/Advantages";
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
 import { Loading } from "../components/Loading";
-import HeartContext from "../Context/heartContext";
+// Axios
+import axios from "axios";
 
 const Home = () => {
-  const [productData, setProductData] = useState([]);
   const [loading, setLoading] = useState(false);
   const { heartData, setHeartData } = useContext(HeartContext);
   useEffect(() => {

@@ -1,0 +1,16 @@
+.no-card {
+  padding-top: 125px;
+  .container {
+    .row {
+      @include head-title($head-border-bottom, center);
+    }
+  }
+  .no-card-title {
+    font-size: 24px;
+    font-weight: 400;
+    color: $main-color;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0 300px;
+  }
+}

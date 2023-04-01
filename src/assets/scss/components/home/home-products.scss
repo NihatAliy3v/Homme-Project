@@ -12,15 +12,15 @@
         align-items: center;
         padding-bottom: 20px;
         margin-bottom: 35px;
-        border-bottom: 1px solid #e5e8ec;
+        border-bottom: 1px solid $border-color;
         .title {
           font-size: 22px;
-          color: #4a3526;
+          color: $main-color;
           font-weight: 400;
           line-height: 22px;
         }
         .view-all {
-          color: #755847;
+          color: $second-color;
           font-size: 14px;
           font-weight: 400;
           line-height: 16px;

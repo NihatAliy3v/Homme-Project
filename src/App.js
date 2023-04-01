@@ -8,7 +8,6 @@ import Home from "./pages/Home";
 import NewIn from "./pages/NewIn";
 import SingleProduct from "./pages/SingleProduct";
 import Cart from "./pages/Cart";
-import Products from "./pages/Products";
 import NotFound from "./pages/NotFound";
 import WishList from "./pages/WishList";
 // Utils
@@ -25,10 +24,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/newin" element={<NewIn />} />
-            <Route path="/products" element={<Products />} />
             <Route path="/products/:id" element={<SingleProduct />} />
-            <Route path="*" element={<NotFound />} />
             <Route path="/wish-list" element={<WishList />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </CartProvider>

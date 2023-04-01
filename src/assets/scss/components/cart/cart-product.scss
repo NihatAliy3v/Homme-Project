@@ -1,7 +1,7 @@
 .cart-product {
   width: 100%;
   padding: 30px 45px;
-  border: 1px solid #e5e8ec;
+  border: 1px solid $border-color;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@
     width: 100%;
     padding: 0 16px;
     .product-title {
-      color: #5c4d3f;
+      color: $text-color;
       font-size: 15px;
       font-weight: 400;
       padding-top: 10px;
@@ -28,7 +28,7 @@
     }
     .product-price {
       font-size: 19px;
-      color: #4a3526;
+      color: $main-color;
       font-weight: 500;
       display: flex;
       align-self: center;
@@ -50,7 +50,7 @@
       .product-size {
         display: flex;
         font-size: 13px;
-        color: #4a3526;
+        color: $main-color;
         font-weight: 300;
         padding: 0 16px 8px 0;
         width: 50%;
@@ -67,12 +67,12 @@
         padding-right: 16px;
         span {
           font-size: 13px;
-          color: #4a3526;
+          color: $main-color;
           padding-right: 5px;
           font-weight: 700;
         }
         .quantity {
-          border: 1px solid #e5e8ec;
+          border: 1px solid $border-color;
           border-radius: 5px;
           height: 40px;
           display: flex;
@@ -97,13 +97,13 @@
             padding: 8px 13px;
             font-size: 16px;
             font-weight: 700;
-            color: #5c4d3f;
+            color: $text-color;
             border: none;
             outline: none;
             background-color: transparent;
             cursor: pointer;
             &.disabled {
-              color: #818ea0;
+              color: $text-light-color;
             }
           }
         }

@@ -1,17 +1,17 @@
-// Icons
-import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
-
 // React
 import { useContext, useEffect, useState } from "react";
-import axios from "axios";
-// Utils
+// Icons
+import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
+// Context
 import CartContext from "../Context/cartContext";
-import { useParams } from "react-router-dom";
 import HeartContext from "../Context/heartContext";
-
 // Components
 import { Loading } from "../components/Loading";
 import { HeadTitle } from "../components/HeadTitle";
+// Axios
+import axios from "axios";
+// Params
+import { useParams } from "react-router-dom";
 
 const SingleProduct = () => {
   const [count, setCount] = useState(1);

@@ -25,14 +25,14 @@
         padding: 16px;
         .title {
           font-size: 48px;
-          color: #4a3526;
+          color: $main-color;
           font-weight: 400;
           margin-bottom: 16px;
           line-height: 48px;
         }
         .description {
           font-size: 19px;
-          color: #4a3526;
+          color: $main-color;
           font-weight: 300;
           margin-bottom: 24px;
           line-height: 29px;
@@ -40,7 +40,7 @@
         .go-products {
           height: 50px;
           padding: 0 20px;
-          background-color: #a38f7a;
+          background-color: $third-color;
           display: flex;
           align-items: center;
           color: #fff;
@@ -48,10 +48,10 @@
           font-size: 16px;
           width: fit-content;
           border-radius: 3px;
-          border: 1px solid #a38f7a;
+          border: 1px solid $third-color;
           transition: all 0.3s;
           &:hover {
-            background-color: #755847;
+            background-color: $second-color;
           }
         }
       }

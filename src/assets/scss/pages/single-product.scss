@@ -9,7 +9,7 @@
         width: 100%;
         .product-images {
           .main-img {
-            border: 1px solid #e5e8ec;
+            border: 1px solid $border-color;
             max-width: 398px;
             height: 478px;
             img {
@@ -26,7 +26,7 @@
               width: 100px;
               height: 120px;
               margin-right: 5px;
-              border: 1px solid #e5e8ec;
+              border: 1px solid $border-color;
               img {
                 width: 100%;
                 height: 100%;
@@ -37,14 +37,14 @@
         .product-info {
           padding-left: 30px;
           .product-title {
-            color: #5c4d3f;
+            color: $text-color;
             font-size: 26px;
             margin-bottom: 20px;
             line-height: 32px;
             font-weight: 700;
           }
           .product-code {
-            color: #818ea0;
+            color: $text-light-color;
             font-size: 15px;
             font-weight: 400;
             line-height: 16px;
@@ -53,7 +53,7 @@
           .size-container {
             .size {
               display: inline-block;
-              color: #5c4d3f;
+              color: $text-color;
               font-size: 15px;
               margin-bottom: 8px;
               font-weight: 600;
@@ -62,7 +62,7 @@
               display: block;
               padding: 8px 5px;
               color: #fff;
-              background-color: #a38f7a;
+              background-color: $third-color;
               width: fit-content;
               font-size: 11px;
               font-weight: 300;
@@ -74,7 +74,7 @@
           }
           .product-color,
           .product-material {
-            color: #5c4d3f;
+            color: $text-color;
             font-weight: 400;
             font-size: 16px;
             margin-bottom: 5px;
@@ -86,7 +86,7 @@
             font-size: 24px;
             font-weight: 500;
             line-height: 19px;
-            color: #4a3526;
+            color: $main-color;
             margin: 52px 0 16px;
             span {
               margin-bottom: 5px;
@@ -95,14 +95,14 @@
           .product-actions {
             padding: 20px;
             margin: 10px 0 30px;
-            border: 1px solid #e5e8ec;
+            border: 1px solid $border-color;
             border-radius: 5px;
             width: fit-content;
-            background-color: #fcfbf8;
+            background-color: $bg-color;
             display: flex;
             flex-wrap: wrap;
             .quantity {
-              border: 1px solid #e5e8ec;
+              border: 1px solid $border-color;
               border-radius: 5px;
               height: 40px;
               display: flex;
@@ -125,13 +125,13 @@
                 padding: 8px 13px;
                 font-size: 16px;
                 font-weight: 700;
-                color: #5c4d3f;
+                color: $text-color;
                 border: none;
                 outline: none;
                 background-color: transparent;
                 cursor: pointer;
                 &.disabled {
-                  color: #818ea0;
+                  color: $text-light-color;
                 }
               }
             }
@@ -139,12 +139,12 @@
               padding: 10px 20px;
               font-size: 13px;
               font-weight: 600;
-              background-color: #a38f7a;
+              background-color: $third-color;
               color: #fff;
               border: none;
               outline: none;
               border-radius: 3px;
-              border: 1px solid #a38f7a;
+              border: 1px solid $third-color;
               cursor: pointer;
               margin-right: 20px;
             }

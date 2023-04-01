@@ -12,7 +12,6 @@ export const HeartProvider = ({ children }) => {
       setHeart(JSON.parse(localHeart));
     }
   }, []);
-  console.log(heartData);
   useEffect(() => {
     localStorage.setItem("heart", JSON.stringify(heart));
   }, [heart]);
